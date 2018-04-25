@@ -3,6 +3,21 @@
 
 #TO DO LIST
 
-hasan deneme
+PACKEGES LIST
+-com.hay.mario
+-...
 
-serdar deneme
+CLASSES LIST
+-Main
+-Scene
+-Keyboard
+-Character
+-Block
+-Object
+-Sonic
+-Pacman
+-...
+
+FUNCTION LIST
+-main
+-...
