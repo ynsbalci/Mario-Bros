@@ -5,4 +5,4 @@
 
 hasan deneme
 
-serdar deneme wwdae
+serdar deneme
