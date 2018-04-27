@@ -26,26 +26,14 @@ public class Scene extends JPanel{
 		this.xBg1 = -50;
 		this.dx = 0;
 		
-<<<<<<< HEAD
 		icoBg = new ImageIcon(getClass().getResource("BURAYA RESÝM EKLENECEK"));
 		this.imgBg1 = this.icoBg.getImage();
 		icoMario = new ImageIcon(getClass().getResource("BURAYA RESÝM EKLENECEK"));
-=======
-<<<<<<< HEAD
-		icoFon = new ImageIcon(getClass().getResource(""));
-		this.imgFon1 = this.icoFon.getImage();
-		icoMario = new ImageIcon(getClass().getResource(""));
-=======
-		icoBg = new ImageIcon(getClass().getResource("/images/bgScreen.png"));
-		this.imgBg1 = this.icoBg.getImage();
-		icoMario = new ImageIcon(getClass().getResource("/images/marioWalkRight.png"));
->>>>>>> cc217f5e9a4f47c3715d6b158122c26beb99e0e8
->>>>>>> ac31518741a4495831720e5c8b474a1b5d81f902
 		this.imgMario = this.icoMario.getImage();
 		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
-		//this.addKeyListener(new Keyboard());
+		this.addKeyListener(new Keyboard());
 		
 		Thread timerScreen = new Thread(new Timer());
 		timerScreen.start();
