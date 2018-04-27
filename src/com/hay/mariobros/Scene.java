@@ -26,14 +26,14 @@ public class Scene extends JPanel{
 		this.xFon1 = -50;
 		this.dx = 0;
 		
-		icoFon = new ImageIcon(getClass().getResource("/images/fonScreen.png"));
+		icoFon = new ImageIcon(getClass().getResource(""));
 		this.imgFon1 = this.icoFon.getImage();
-		icoMario = new ImageIcon(getClass().getResource("/images/marioWalkRight.png"));
+		icoMario = new ImageIcon(getClass().getResource(""));
 		this.imgMario = this.icoMario.getImage();
 		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
-		this.addKeyListener(new Keyboard());
+		//this.addKeyListener(new Keyboard());
 		
 		Thread timerScreen = new Thread(new Timer());
 		timerScreen.start();
