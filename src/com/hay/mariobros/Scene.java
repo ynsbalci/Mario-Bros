@@ -26,9 +26,9 @@ public class Scene extends JPanel{
 		this.xBg1 = -50;
 		this.dx = 0;
 		
-		icoBg = new ImageIcon(getClass().getResource("/images/bgScreen.png"));
+		icoBg = new ImageIcon(getClass().getResource("BURAYA RESÝM EKLENECEK"));
 		this.imgBg1 = this.icoBg.getImage();
-		icoMario = new ImageIcon(getClass().getResource("/images/marioWalkRight.png"));
+		icoMario = new ImageIcon(getClass().getResource("BURAYA RESÝM EKLENECEK"));
 		this.imgMario = this.icoMario.getImage();
 		
 		this.setFocusable(true);
