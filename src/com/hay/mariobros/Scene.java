@@ -10,24 +10,24 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Scene extends JPanel{
 	
-	private ImageIcon icoFon;
-	private Image imgFon1;
+	private ImageIcon icoBg;
+	private Image imgBg1;
 	
 	private ImageIcon icoMario; //*gecici kod
 	private Image imgMario; //* gecici kod
 	
-	private int xFon1;
+	private int xBg1;
 	private int dx;
 	
 	//**** CONSTRUCTOR ****//
 	public Scene(){
 		super();
 		
-		this.xFon1 = -50;
+		this.xBg1 = -50;
 		this.dx = 0;
 		
-		icoFon = new ImageIcon(getClass().getResource("/images/fonScreen.png"));
-		this.imgFon1 = this.icoFon.getImage();
+		icoBg = new ImageIcon(getClass().getResource("/images/bgScreen.png"));
+		this.imgBg1 = this.icoBg.getImage();
 		icoMario = new ImageIcon(getClass().getResource("/images/marioWalkRight.png"));
 		this.imgMario = this.icoMario.getImage();
 		
@@ -45,13 +45,13 @@ public class Scene extends JPanel{
 	public void setDx(int dx) {this.dx = dx;}
 	
 	//**** FUNCTIONS ****//
-	public void displacementFon() {this.xFon1 = this.xFon1 - this.dx;}
+	public void displacementBg() {this.xBg1 = this.xBg1 - this.dx;}
 	public void paintComponent(Graphics g) {
 		
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D)g;
-		this.displacementFon();
-		g2.drawImage(this.imgFon1, this.xFon1, 0, null); // Arkaplan resminin cizimi
+		this.displacementBg();
+		g2.drawImage(this.imgBg1, this.xBg1, 0, null); // Arkaplan resminin cizimi
 		g2.drawImage(imgMario, 300, 245, null); //*** gecici kod
 	}
 }
