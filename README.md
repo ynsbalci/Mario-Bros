@@ -11,6 +11,7 @@ CLASSES LIST
 -Main
 -Scene
 -Keyboard
+-Timer
 -Character
 -Block
 -Object
