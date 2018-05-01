@@ -8,8 +8,8 @@ public class Mario extends Character{
 	ImageIcon iconMario;
 	
 	public Mario(int x,int y) { 
-		super(x,y,28,50);
-		this.iconMario=new ImageIcon("");// karakter için mevcut resim alýnýyor
+		super(x, y, 60, 100);
+		this.iconMario=new ImageIcon("/images/mario.png");// karakter için mevcut resim alýnýyor
 		this.imgMario=iconMario.getImage();//Mario'ya atanýyor
 	}
 

@@ -12,23 +12,30 @@ public class Scene extends JPanel{
 	
 	private ImageIcon icoBg;
 	private Image imgBg1;
-	
-	private ImageIcon icoMario; //*gecici kod
-	private Image imgMario; //* gecici kod
-	
+	private Image imgBg2;
+	private ImageIcon icoCastleStart;
+	private Image imgCastleStart;
+	private ImageIcon icoStart;
+	private Image imgStart;
 	private int xBg1;
+	private int xBg2;
 	private int dx;
+	private int xPos;
+	public Mario Mario;
+	public Tube Tube;
 	
 	//**** CONSTRUCTOR ****//
 	public Scene(){
 		super();
 		
 		this.xBg1 = 0;
+		this.xBg2 = 0;
 		this.dx = 0;
+		this.xPos = -1;
 		
 		icoBg = new ImageIcon(getClass().getResource("/images/background.png")); //buraya resim kelneck
 		this.imgBg1 = this.icoBg.getImage();
-		icoMario = new ImageIcon(getClass().getResource("")); //buraya reismekleneck
+		icoMario = new ImageIcon(getClass().getResource("/images/")); //buraya reismekleneck
 		this.imgMario = this.icoMario.getImage();
 		
 		this.setFocusable(true);
