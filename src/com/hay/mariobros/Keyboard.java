@@ -11,10 +11,21 @@ public  class Keyboard implements KeyListener {
 		//Herhangi bir tuþa basýldýðý zaman tuþlarýn iþlevlerine  göre gerekli iþlemlerin atanmasý
 		
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			
+			if (Main.scene.getxPos() == -1) {
+				Main.scene.setDx(1);
+				Main.scene.setxPos(0); //düzenlencek
+				Main.scene.setxBg1(0); //düzenck
+				Main.scene.setxBg2(0); ////düzenlþencek
+			}
+			Main.scene.mario.setMovement(true); //hareket edebilir 
+			//Main.scene.mario.
 			Main.scene.setDx(1);
 			
 		}else if(e.getKeyCode()==KeyEvent.VK_LEFT)
 		{
+			Main.scene.mario.setMovement(true); //hareket edebilir
+			//Main.scene.mario.
 			Main.scene.setDx(-1);
 		}
 		
@@ -23,9 +34,7 @@ public  class Keyboard implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		//elimizi tustan cektigimiz anda calisan olaydir
-		
-		Main.scene.setDx(0);
-		
+		Main.scene.setDx(0);	
 	}
 
 	@Override

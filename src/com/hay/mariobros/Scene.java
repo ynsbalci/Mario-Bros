@@ -6,6 +6,10 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import com.hay.character.Mario;
+
+//import jdk.nashorn.internal.ir.Block;
+
 
 @SuppressWarnings("serial")
 public class Scene extends JPanel{
@@ -21,8 +25,9 @@ public class Scene extends JPanel{
 	private int xBg2;
 	private int dx;
 	private int xPos;
-	public Mario Mario;
-	public Tube Tube;
+	public Mario mario;
+	public Tube tube;
+	public Block block;
 	
 	//**** CONSTRUCTOR ****//
 	public Scene(){
@@ -33,10 +38,19 @@ public class Scene extends JPanel{
 		this.dx = 0;
 		this.xPos = -1;
 		
-		icoBg = new ImageIcon(getClass().getResource("/images/background.png")); //buraya resim kelneck
+		icoBg = new ImageIcon(getClass().getResource("/images/background.png")); //arkaplan resmi
 		this.imgBg1 = this.icoBg.getImage();
-		icoMario = new ImageIcon(getClass().getResource("/images/")); //buraya reismekleneck
-		this.imgMario = this.icoMario.getImage();
+		this.imgBg2 = this.icoBg.getImage();
+		
+		icoCastleStart = new ImageIcon(getClass().getResource("/images/castle_start.png")); //başlangıçtaki kule
+		this.imgCastleStart = this.icoCastleStart.getImage();
+		
+		icoStart = new ImageIcon(getClass().getResource("/images/start.png")); //ok işareti
+		this.imgStart = this.icoStart.getImage();
+
+		mario = new Mario(400, 250);
+		tube = new Tube();
+		block = new Block();
 		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
@@ -45,20 +59,54 @@ public class Scene extends JPanel{
 		Thread timerScreen = new Thread(new Timer());
 		timerScreen.start();
 	}
+	
 	//**** GETTERS ****//
 	public int getDx() {return dx;}
+	public int getxPos() {return xPos;}
 	
 	//**** SETTERS ****//
 	public void setDx(int dx) {this.dx = dx;}
-	
+	public void setxPos(int xPos) {this.xPos = xPos;}
+	public void setxBg1(int xBg1) {this.xBg1 = xBg1;}
+	public void setxBg2(int xBg2) {this.xBg2 = xBg2;}
+
+
 	//**** FUNCTIONS ****//
-	public void displacementBg() {this.xBg1 = this.xBg1 - this.dx;}
+	public void displacementBg() {
+		//
+		if (this.xPos >= 0) {
+			this.xPos = this.xPos + this.dx;
+			this.xBg1 = this.xBg1 - this.dx;
+			this.xBg2 = this.xBg2 - this.dx;
+		}
+		if (this.xBg1 == -800) {this.xBg1 = 800;}
+		else if (this.xBg2 == -800) {this.xBg1 = 800;}
+		else if (this.xBg1 == 800) {this.xBg1 = -800;}
+		else if (this.xBg2 == 800) {this.xBg1 = -800;}
+		
+	}
 	public void paintComponent(Graphics g) {
 		
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D)g;
 		this.displacementBg();
-		g2.drawImage(this.imgBg1, this.xBg1, 0, null); // Arkaplan resminin cizimi
-		g2.drawImage(imgMario, 300, 245, null); //*** sayılar düzenlenck
+		
+		if (true) {
+			//marionun herhangi bir engele çarptı mı diye bakıcaz
+			//eğer çarptı ise movemet false olcak
+			//dx i sıfırla
+		}
+		this.displacementBg();
+		//this.tube.displacement;
+		
+		g2.drawImage(this.imgBg1, this.xBg1, 0, null);
+		g2.drawImage(this.imgBg2, this.xBg2, 0, null);
+		
+		//diğer objelerinde ekran çizimi yazılcak
+		//07-3
+		
+		
+		
 	}
+
 }

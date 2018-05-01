@@ -1,4 +1,4 @@
-package com.hay.mariobros;
+package com.hay.character;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -12,10 +12,7 @@ public class Mario extends Character{
 		this.iconMario=new ImageIcon("/images/mario.png");// karakter için mevcut resim alýnýyor
 		this.imgMario=iconMario.getImage();//Mario'ya atanýyor
 	}
-
-	public Image getImgMario() {
-		return imgMario;
-	}
 	
-
+	public Image getImgMario() {return imgMario;}
+	
 }

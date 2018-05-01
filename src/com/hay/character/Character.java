@@ -1,4 +1,4 @@
-package com.hay.mariobros;
+package com.hay.character;
 
 public class Character {
 	int width,height;
