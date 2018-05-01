@@ -13,6 +13,7 @@ public class Mario extends Character{
 		this.imgMario=iconMario.getImage();//Mario'ya atanýyor
 	}
 	
+	//**** GETTERS ****//
 	public Image getImgMario() {return imgMario;}
 	
 }
