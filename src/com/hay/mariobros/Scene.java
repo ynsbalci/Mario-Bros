@@ -52,6 +52,6 @@ public class Scene extends JPanel{
 		Graphics g2 = (Graphics2D)g;
 		this.displacementBg();
 		g2.drawImage(this.imgBg1, this.xBg1, 0, null); // Arkaplan resminin cizimi
-		g2.drawImage(imgMario, 300, 245, null); //*** gecici kod
+		g2.drawImage(imgMario, 300, 245, null); //*** sayılar düzenlenck
 	}
 }
