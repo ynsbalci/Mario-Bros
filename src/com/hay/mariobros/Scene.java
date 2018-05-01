@@ -23,10 +23,10 @@ public class Scene extends JPanel{
 	public Scene(){
 		super();
 		
-		this.xBg1 = -50;
+		this.xBg1 = 0;
 		this.dx = 0;
 		
-		icoBg = new ImageIcon(getClass().getResource("")); //buraya resim kelneck
+		icoBg = new ImageIcon(getClass().getResource("/images/background.png")); //buraya resim kelneck
 		this.imgBg1 = this.icoBg.getImage();
 		icoMario = new ImageIcon(getClass().getResource("")); //buraya reismekleneck
 		this.imgMario = this.icoMario.getImage();
