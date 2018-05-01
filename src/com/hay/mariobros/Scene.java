@@ -26,9 +26,9 @@ public class Scene extends JPanel{
 		this.xBg1 = -50;
 		this.dx = 0;
 		
-		icoBg = new ImageIcon(getClass().getResource("BURAYA RESÝM EKLENECEK"));
+		icoBg = new ImageIcon(getClass().getResource("")); //buraya resim kelneck
 		this.imgBg1 = this.icoBg.getImage();
-		icoMario = new ImageIcon(getClass().getResource("BURAYA RESÝM EKLENECEK"));
+		icoMario = new ImageIcon(getClass().getResource("")); //buraya reismekleneck
 		this.imgMario = this.icoMario.getImage();
 		
 		this.setFocusable(true);
@@ -52,6 +52,6 @@ public class Scene extends JPanel{
 		Graphics g2 = (Graphics2D)g;
 		this.displacementBg();
 		g2.drawImage(this.imgBg1, this.xBg1, 0, null); // Arkaplan resminin cizimi
-		g2.drawImage(imgMario, 300, 245, null); //*** gecici kod
+		g2.drawImage(imgMario, 300, 245, null); //*** sayÄ±lar dÃ¼zenlenck
 	}
 }
