@@ -4,8 +4,9 @@
 #TO DO LIST
 
 PACKEGES LIST
--com.hay.mario
--...
+-com.hay.mariobros
+-com.hay.objects
+-com.hay.character
 
 CLASSES LIST
 -Main
@@ -17,6 +18,7 @@ CLASSES LIST
 -Object
 -Sonic
 -Pacman
+-
 -...
 
 FUNCTION LIST
