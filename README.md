@@ -13,10 +13,12 @@
 - Keyboard
 - Timer
 - Character
+- Mario
 - Block
 - Object
 - Sonic
 - Pacman
+- Tube
 - ...
 
 # FUNCTION LIST
