@@ -1,7 +1,6 @@
-# Mario-Bros
- this project is a software engineering application
+# `Mario-Bros`
 
-#TO DO LIST
+ this project is a software engineering application
 
 # PACKEGES LIST
 - com.hay.mariobros
