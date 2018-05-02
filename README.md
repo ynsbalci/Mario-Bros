@@ -3,22 +3,26 @@
  this project is a software engineering application
 
 # PACKEGES LIST
+- com.hay.character
 - com.hay.mariobros
 - com.hay.objects
-- com.hay.character
 
 # CLASSES LIST
-- Main
-- Scene
-- Keyboard
-- Timer
+> com.hay.character
 - Character
 - Mario
+
+> com.hay.mariobros
+- Keyboard
+- Main
+- Scene
+- Timer
+
+> com.hay.objects
 - Block
 - Object
-- Sonic
-- Pacman
 - Tube
+
 - ...
 
 # FUNCTION LIST
