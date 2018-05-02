@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import com.hay.character.Mario;
 import com.hay.objects.Block;
+import com.hay.objects.Tube;
 
 
 @SuppressWarnings("serial")
@@ -48,8 +49,8 @@ public class Scene extends JPanel{
 		this.imgStart = this.icoStart.getImage();
 
 		mario = new Mario(400, 250);
-		tube = new Tube();
-		block = new Block();
+		tube = new Tube(200, 300);
+		block = new Block(300, 250);
 		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
