@@ -24,6 +24,7 @@
 > com.hay.objects
 - Block
 - Cloud
+- Floor
 - Mountain
 - Object
 - Tube
