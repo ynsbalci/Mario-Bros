@@ -11,7 +11,7 @@ public class Block extends Object {
 	public Block(int x, int y) {
 		
 		super(x, y, 43, 65);
-		this.icoBlock = new ImageIcon(getClass().getResource(""));
+		this.icoBlock = new ImageIcon(getClass().getResource("/images/block.png"));
 		this.imgBlock = this.icoBlock.getImage();
 	}
 	

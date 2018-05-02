@@ -48,7 +48,7 @@ public class Scene extends JPanel{
 		icoStart = new ImageIcon(getClass().getResource("/images/start.png")); //ok işareti
 		this.imgStart = this.icoStart.getImage();
 
-		mario = new Mario(400, 250);
+		mario = new Mario(300, 100);
 		tube = new Tube(200, 300);
 		block = new Block(300, 250);
 		

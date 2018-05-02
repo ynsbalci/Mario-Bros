@@ -11,7 +11,7 @@ public class Tube extends Object {
 	public Tube(int x, int y) {	
 		//içine girdiði tüpler kýrmýzýlar 
 		super(x, y, 43, 65);
-		this.icoTube = new ImageIcon(getClass().getResource(""));
+		this.icoTube = new ImageIcon(getClass().getResource("/images/tube.png"));
 		this.imgTube = this.icoTube.getImage();
 	}
 	
