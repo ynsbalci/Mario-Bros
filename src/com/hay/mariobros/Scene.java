@@ -100,11 +100,12 @@ public class Scene extends JPanel{
 		
 		g2.drawImage(this.imgBg1, this.xBg1, 0, null);
 		g2.drawImage(this.imgBg2, this.xBg2, 0, null);
-		
-		//diğer objelerinde ekran çizimi yazılcak
-		//07-3
-		
-		
+		g2.drawImage(this.mario.move("mario", 25), 300, 245, null);
+		g2.drawImage(this.imgCastleStart,  10-this.xPos, 95, null);
+		g2.drawImage(this.imgStart, 220-this.xPos, 234, null);
+		g2.drawImage(this.tube.getImgTube(), this.tube.getX(), this.tube.getY(), null);
+		g2.drawImage(this.block.getImgBlock(), this.block.getX() - this.xPos, this.block.getY(), null);
+				
 		
 	}
 
