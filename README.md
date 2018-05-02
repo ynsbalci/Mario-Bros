@@ -1,24 +1,30 @@
-# Mario-Bros
+# `Mario-Bros`
+
  this project is a software engineering application
 
-#TO DO LIST
+# PACKEGES LIST
+- com.hay.character
+- com.hay.mariobros
+- com.hay.objects
 
-PACKEGES LIST
--com.hay.mario
--...
+# CLASSES LIST
+> com.hay.character
+- Character
+- Mario
 
-CLASSES LIST
--Main
--Scene
--Keyboard
--Timer
--Character
--Block
--Object
--Sonic
--Pacman
--...
+> com.hay.mariobros
+- Keyboard
+- Main
+- Scene
+- Timer
 
-FUNCTION LIST
--main
--...
+> com.hay.objects
+- Block
+- Object
+- Tube
+
+- ...
+
+# FUNCTION LIST
+- main
+- ...
