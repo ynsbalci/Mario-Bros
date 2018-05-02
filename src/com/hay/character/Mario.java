@@ -4,8 +4,8 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Mario extends Character{
-	Image imgMario;
-	ImageIcon iconMario;
+	private Image imgMario;
+	private ImageIcon iconMario;
 	
 	public Mario(int x,int y) { 
 		super(x, y, 60, 100);

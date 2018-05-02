@@ -7,20 +7,20 @@ import javax.swing.ImageIcon;
 import com.hay.mariobros.Main;
 
 public class Character {
-	int width,height;
-	int x,y;
-	boolean movement;
-	boolean starboard;
-	int counter;
+	private int width,height;
+	private int x,y;
+	private boolean movement;
+	private boolean starboard;
+	public int counter;
 	
 	public Character(int x,int y,int width,int height) {
 		this.x=x;
 		this.y=y;
 		this.width=width;
 		this.height=height;
-		counter=0;
-		movement=false;
-		starboard=true;;
+		this.counter=0;
+		this.movement=false;
+		this.starboard=true;;
 	}
 
 	//**** GETTERS ****//
@@ -71,7 +71,7 @@ public class Character {
 	}
 	
 	public boolean Test(Object object) {
-		//yazýlack
+		//yazýlacak
 		return false;
 	} 
 	
