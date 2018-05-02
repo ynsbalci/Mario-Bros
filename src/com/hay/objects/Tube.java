@@ -1,4 +1,4 @@
-package com.hay.mariobros;
+package com.hay.objects;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
