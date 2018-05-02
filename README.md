@@ -11,6 +11,9 @@
 > com.hay.character
 - Character
 - Mario
+- Pacman
+- Rapunzel
+- Sonic
 
 > com.hay.mariobros
 - Keyboard
@@ -20,10 +23,11 @@
 
 > com.hay.objects
 - Block
+- Cloud
+- Mountain
 - Object
 - Tube
 
-- ...
 
 # FUNCTION LIST
 - main
