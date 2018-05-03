@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -12,6 +13,8 @@ import javax.swing.JPanel;
 import com.hay.character.Mario;
 import com.hay.objects.Block;
 import com.hay.objects.Cloud;
+import com.hay.objects.Coin;
+import com.hay.objects.Floor;
 import com.hay.objects.Mountain;
 import com.hay.objects.Tube;
 
@@ -37,36 +40,20 @@ public class Scene extends JPanel{
 	private int ySol;
     private int ceilingheater=0;
     
+    Random rand =new Random();
+     int a = rand.nextInt(10);//0-10
     
+    //Characters
 	public Mario mario;
 	
-	//Blocks
-	public Block block0;
-	public Block block1;
-	public Block block2;
-	public Block block3;
-	public Block block4;
-	
-	//Clouds
-	public Cloud cloud0;
-	public Cloud cloud1;
-	public Cloud cloud2;
-	public Cloud cloud3;
-	public Cloud cloud4;
-	
-	//Mountains
-	public Mountain mountain0;
-	public Mountain mountain1;
-	public Mountain mountain2;
-	public Mountain mountain3;
-	public Mountain mountain4;
-	
-	//Tubes
-	public Tube tube0;
-	public Tube tube1;
-	public Tube tube2;
-	public Tube tube3;
-	public Tube tube4;
+	//Objects
+	public Block[] blocks = new Block[1];
+	public Cloud[] clouds = new Cloud[1];
+	public Coin[] coins = new Coin[1];
+	public Floor[] floors = new Floor[1];
+	public Mountain[] mountains = new Mountain[1];
+	public Tube[] tubes = new Tube[1];
+
 	
 	private ArrayList<Object> objects;
 	
@@ -90,62 +77,33 @@ public class Scene extends JPanel{
 		icoFinish = new ImageIcon(getClass().getResource("/images/finish.png"));
 		this.imgFinish = this.icoFinish.getImage();
 		
-		//mario = new Mario(300, 100);
-
-		//Blocks
-		block0 = new Block(0, 0);
-		block1 = new Block(0, 0);
-		block2 = new Block(0, 0);
-		block3 = new Block(0, 0);
-		block4 = new Block(0, 0);
+		//Characters
+		mario = new Mario(370, 350);
 		
-		//Clouds
-		cloud0 = new Cloud(0, 0);
-		cloud1 = new Cloud(0, 0);
-		cloud2 = new Cloud(0, 0);
-		cloud3 = new Cloud(0, 0);
-		cloud4 = new Cloud(0, 0);
-		
-		//Mountains
-		mountain0 = new Mountain(0, 0);
-		mountain1 = new Mountain(0, 0);
-		mountain2 = new Mountain(0, 0);
-		mountain3 = new Mountain(0, 0);
-		mountain4 = new Mountain(0, 0);
-		
-		//Tubes
-		tube0 = new Tube(0, 0);
-		tube1 = new Tube(0, 0);
-		tube2 = new Tube(0, 0);
-		tube3 = new Tube(0, 0);
-		tube4 = new Tube(0, 0);
+		//Objects
+		for (int i = 0; i < blocks.length; i++) {
+			blocks[i] = new Block(0, 0);
+		}
+		for (int i = 0; i < clouds.length; i++) {
+			//	
+		}
+		for (int i = 0; i < coins.length; i++) {
+			//
+		}
+		for (int i = 0; i < floors.length; i++) {
+			//
+			floors[i] = new Floor(0, 450);
+		}
+		for (int i = 0; i < mountains.length; i++) {
+			//
+		}
+		for (int i = 0; i < tubes.length; i++) {
+			//
+		}
 		
 		objects = new ArrayList<Object>();
 		
-		//Blocks
-		this.objects.add(block0);
-		this.objects.add(block1);
-		this.objects.add(block2);
-		this.objects.add(block3);
-		this.objects.add(block4);
-		//Clouds
-		this.objects.add(cloud0);
-		this.objects.add(cloud1);
-		this.objects.add(cloud2);
-		this.objects.add(cloud3);
-		this.objects.add(cloud4);
-		//Mountains
-		this.objects.add(mountain0);
-		this.objects.add(mountain1);
-		this.objects.add(mountain2);
-		this.objects.add(mountain3);
-		this.objects.add(mountain4);
-		//Tubes
-		this.objects.add(tube0);
-		this.objects.add(tube1);
-		this.objects.add(tube2);
-		this.objects.add(tube3);
-		this.objects.add(tube4);
+		
 		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
@@ -195,6 +153,8 @@ public class Scene extends JPanel{
 		g2.drawImage(this.imgBackground, 0, 0, null); //arka plan sabit
 		g2.drawImage(this.imgCastleStart,  this.xPos, 0, null);
 		
+		g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
+		g2.drawImage(this.floors[0].getImgObject(), floors[0].getX(), floors[0].getY(), null);
 		
 		/*this.tube.displacement();
 		
