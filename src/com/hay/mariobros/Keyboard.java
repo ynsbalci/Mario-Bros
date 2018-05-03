@@ -15,18 +15,21 @@ public  class Keyboard implements KeyListener {
 			if (Main.scene.getxPos() == -1) {
 				Main.scene.setDx(1);
 				Main.scene.setxPos(0); //düzenlencek
-				Main.scene.setxBg1(0); //düzenck
-				Main.scene.setxBg2(0); ////düzenlþencek
+				Main.scene.setxBg1(-50); //düzenck
+				Main.scene.setxBg2(750); ////düzenlþencek
 			}
 			Main.scene.mario.setMovement(true); //hareket edebilir 
-			//Main.scene.mario.
+			Main.scene.mario.setStarboard(true);
 			Main.scene.setDx(1);
 			
 		}else if(e.getKeyCode()==KeyEvent.VK_LEFT)
 		{
 			Main.scene.mario.setMovement(true); //hareket edebilir
-			//Main.scene.mario.
+			Main.scene.mario.setStarboard(true);
 			Main.scene.setDx(-1);
+		}
+		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+			Main.scene.mario.setMovement(true);
 		}
 		
 	}
@@ -34,6 +37,7 @@ public  class Keyboard implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		//elimizi tustan cektigimiz anda calisan olaydir
+		Main.scene.mario.setMovement(false);
 		Main.scene.setDx(0);	
 	}
 
