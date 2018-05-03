@@ -33,14 +33,15 @@ public class Mario extends Character{
 	public Image jumping() {
 		ImageIcon iconn;
 		Image img;
-		String str;
+		String str = null;
 		
 		this.jump_counter++;
 		if(this.jump_counter<=35) {
 				if(this.getY()>Main.scene.getHeight())
 				{
 					this.setY(this.getY()-4);
-				}else {
+				}
+				else {
 				this.jump_counter=36;
 				}
 				if(this.isStarboard()==true) {

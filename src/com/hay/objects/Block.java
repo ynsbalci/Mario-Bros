@@ -8,6 +8,7 @@ public class Block extends Object {
 	private Image imgBlock;
 	private ImageIcon icoBlock;
 	
+	//***** CONSTRUCTER *****//
 	public Block(int x, int y) {
 		
 		super(x, y, 43, 65);
@@ -15,6 +16,11 @@ public class Block extends Object {
 		this.imgBlock = this.icoBlock.getImage();
 	}
 	
-	//*****GETTERS*****//
+	//***** GETTERS *****//
 	public Image getImgBlock() {return imgBlock;}
+	
+	//***** SETTERS *****//
+	
+	//***** FUNCTIONS *****//
+	
 }

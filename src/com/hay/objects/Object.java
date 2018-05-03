@@ -7,6 +7,7 @@ public class Object {
 	private int width, height;
 	private int x, y;
 	
+	//***** CONSTRUCTER *****//
 	public Object(int x, int y, int width, int height) {
 		
 		this.x = x;
