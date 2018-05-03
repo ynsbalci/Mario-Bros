@@ -1,10 +1,9 @@
 package com.hay.character;
 
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
-
 import com.hay.mariobros.Main;
+import com.hay.objects.Object;
 
 public class Character {
 	private int width,height;
@@ -70,9 +69,41 @@ public class Character {
 		return img;
 	}
 	
-	public boolean Test(Object object) {
-		//yazýlacak
-		return false;
-	} 
+	protected boolean firstContact(Object object) {
+		if(this.x + this.width < object.getX() || this.x + this.width > object.getX() + 5
+			|| this.y + this.height <= object.getY() ||
+			this.y >= object.getY() + object.getHeight()){return false;}
+		else{return true;}
+	}
+	
+	protected boolean backContact(Object object){
+		if(this.x > object.getX() + object.getWidth() ||
+			this.x + this.width < object.getX() + object.getWidth() - 5 ||
+			this.y + this.height <= object.getY() ||
+			this.y >= object.getY() + object.getHeight()){return false;}
+		else {return true;}
+	}
+	
+	protected boolean downContact(Object object){
+		if(this.x + this.width < object.getX() + 5 ||
+			this.x > object.getX() + object.getWidth() - 5 ||
+			this.y + this.height < object.getY() || this.y + this.height > object.getY() + 5)
+			{return false;}
+		else {return true;}
+	}
+	
+	protected boolean upContact(Object object){
+		if(this.x + this.width < object.getX() + 5 ||
+			this.x > object.getX() + object.getWidth() - 5 ||
+			this.y < object.getY() + object.getHeight() ||
+			this.y > object.getY() + object.getHeight() + 5){return false;}
+		else {return true;}
+	}
+	
+	public boolean near(Object object){
+		if((this.x > object.getX() - 10 && this.x < object.getX() + object.getWidth() + 10)
+		|| (this.x + this.width > object.getX() - 10 && this.x + this.width < object.getX() +object.getWidth() + 10)){return true;}
+		else {return false;}
+	}
 	
 }
