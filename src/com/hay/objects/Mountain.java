@@ -12,7 +12,7 @@ public class Mountain extends Object{
 	public Mountain(int x, int y) {	
 
 		super(x, y, 43, 65);
-		this.icoMountain = new ImageIcon(getClass().getResource("/images/mountain.png"));
+		this.icoMountain = new ImageIcon(getClass().getResource("/images/mountain_1.png"));
 		this.imgMountain = this.icoMountain.getImage();
 	}
 	

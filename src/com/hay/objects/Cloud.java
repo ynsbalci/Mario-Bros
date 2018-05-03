@@ -12,7 +12,7 @@ public class Cloud extends Object {
 	public Cloud(int x, int y) {	
 		//arka pplan bulutklarý
 		super(x, y, 43, 65);
-		this.icoCloud = new ImageIcon(getClass().getResource("/images/cloud.png"));
+		this.icoCloud = new ImageIcon(getClass().getResource("/images/cloud_1.png"));
 		this.imgCloud = this.icoCloud.getImage();
 	}
 	

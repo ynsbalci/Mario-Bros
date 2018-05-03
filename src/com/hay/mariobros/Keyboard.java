@@ -15,8 +15,8 @@ public  class Keyboard implements KeyListener {
 			if (Main.scene.getxPos() == -1) {
 				Main.scene.setDx(1);
 				Main.scene.setxPos(0); //düzenlencek
-				Main.scene.setxBg1(-50); //düzenck
-				Main.scene.setxBg2(750); ////düzenlþencek
+				//Main.scene.setxBackground(-50); //düzenck
+				//Main.scene.setxBg2(750); ////düzenlþencek
 			}
 			Main.scene.mario.setMovement(true); //hareket edebilir 
 			Main.scene.mario.setStarboard(true);
