@@ -1,21 +1,15 @@
 package com.hay.objects;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Tube extends Object {
 	
-	private Image imgTube;
-	private ImageIcon icoTube;
-	
+	//***** CONSTRUCTER *****//
 	public Tube(int x, int y) {	
-		//içine girdiði tüpler kýrmýzýlar 
-		super(x, y, 43, 65);
-		this.icoTube = new ImageIcon(getClass().getResource("/images/tube.png"));
-		this.imgTube = this.icoTube.getImage();
+		super(x, y, 75, 150);
+		super.icoObjects = new ImageIcon(getClass().getResource("/images/tube.png"));
+		super.imgObjects = this.icoObjects.getImage();
 	}
 	
-	//*****GETTERS*****//
-	public Image getImgTube() {return imgTube;}
 
 }

@@ -1,26 +1,14 @@
 package com.hay.objects;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Block extends Object {
 	
-	private Image imgBlock;
-	private ImageIcon icoBlock;
-	
 	//***** CONSTRUCTER *****//
 	public Block(int x, int y) {
-		
-		super(x, y, 43, 65);
-		this.icoBlock = new ImageIcon(getClass().getResource("/images/block.png"));
-		this.imgBlock = this.icoBlock.getImage();
+		super(x, y, 50, 50);
+		super.icoObjects = new ImageIcon(getClass().getResource("/images/block.png"));
+		super.imgObjects = this.icoObjects.getImage();
 	}
-	
-	//***** GETTERS *****//
-	public Image getImgBlock() {return imgBlock;}
-	
-	//***** SETTERS *****//
-	
-	//***** FUNCTIONS *****//
 	
 }

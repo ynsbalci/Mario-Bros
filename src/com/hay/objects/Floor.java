@@ -1,21 +1,14 @@
 package com.hay.objects;
 
-import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Floor extends Object {
 	
-	private Image imgFloor;
-	private ImageIcon icoFloor;
-	
+	//***** CONSTRUCTER *****//
 	public Floor(int x, int y) {	
-		//içine girdiði tüpler kýrmýzýlar 
-		super(x, y, 43, 65);
-		this.icoFloor = new ImageIcon(getClass().getResource("/images/floor.png"));
-		this.imgFloor = this.icoFloor.getImage();
+		super(x, y, 200, 25);
+		super.icoObjects = new ImageIcon(getClass().getResource("/images/floor.png"));
+		super.imgObjects = this.icoObjects.getImage();
 	}
-	
-	//*****GETTERS*****//
-	public Image getImgFloor() {return imgFloor;}
 
 }

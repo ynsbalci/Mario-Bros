@@ -22,7 +22,6 @@ public class Main {
 		window.setContentPane(scene);
 		window.setVisible(true);
 		
-
 	}
 
 }

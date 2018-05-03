@@ -79,15 +79,15 @@ public class Scene extends JPanel{
 		this.xPos = -1;
 		
 		//
-		icoBackground = new ImageIcon(getClass().getResource("/images/background.png")); //arkaplan resmi
+		icoBackground = new ImageIcon(getClass().getResource("/images/background.png"));
 		this.imgBackground = this.icoBackground.getImage();
-		icoCastleStart = new ImageIcon(getClass().getResource("/images/castle_start.png")); //başlangıçtaki kule
+		icoCastleStart = new ImageIcon(getClass().getResource("/images/castle_start.png"));
 		this.imgCastleStart = this.icoCastleStart.getImage();	
-		icoStart = new ImageIcon(getClass().getResource("/images/start.png")); //ok işareti
+		icoStart = new ImageIcon(getClass().getResource("/images/start.png"));
 		this.imgStart = this.icoStart.getImage();
-		icoCastleFinish = new ImageIcon(getClass().getResource("/images/castle_finish.png")); //başlangıçtaki kule
+		icoCastleFinish = new ImageIcon(getClass().getResource("/images/castle_finish.png"));
 		this.imgCastleFinish = this.icoCastleFinish.getImage();
-		icoFinish = new ImageIcon(getClass().getResource("/images/finish.png")); //ok işareti
+		icoFinish = new ImageIcon(getClass().getResource("/images/finish.png"));
 		this.imgFinish = this.icoFinish.getImage();
 		
 		//mario = new Mario(300, 100);
