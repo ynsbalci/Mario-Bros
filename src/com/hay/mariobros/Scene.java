@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import com.hay.character.Mario;
 import com.hay.objects.Block;
 import com.hay.objects.Cloud;
-import com.hay.objects.Piece;
+import com.hay.objects.Coin;
 import com.hay.objects.Floor;
 import com.hay.objects.Mountain;
 import com.hay.objects.Tube;
@@ -48,17 +48,10 @@ public class Scene extends JPanel{
 	
 	//Objects
 	public Block[] blocks = new Block[1];
-<<<<<<< HEAD
 	public Cloud[] clouds = new Cloud[25];
 	public Coin[] coins = new Coin[rand.nextInt(25)];
 	public Floor[] floors = new Floor[25];
 	public Mountain[] mountains = new Mountain[rand.nextInt(25)];
-=======
-	public Cloud[] clouds = new Cloud[1];
-	public Piece[] coins = new Piece[1];
-	public Floor[] floors = new Floor[1];
-	public Mountain[] mountains = new Mountain[1];
->>>>>>> 339a7d96832674709e78c1794671e6b5e90764a6
 	public Tube[] tubes = new Tube[1];
 
 	
