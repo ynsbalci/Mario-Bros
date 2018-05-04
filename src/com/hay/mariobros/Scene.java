@@ -47,7 +47,7 @@ public class Scene extends JPanel{
 	public Mario mario;
 	
 	//Objects
-	public Block[] blocks = new Block[1];
+	public Block[] blocks = new Block[rand.nextInt(25)];
 	public Cloud[] clouds = new Cloud[25];
 	public Coin[] coins = new Coin[rand.nextInt(25)];
 	public Floor[] floors = new Floor[25];
@@ -82,15 +82,13 @@ public class Scene extends JPanel{
 		
 		//Objects
 		for (int i = 0; i < blocks.length; i++) {
-			blocks[i] = new Block(0, 0);
+			blocks[i] = new Block(i * 50 + i, 0);
 		}
 		for (int i = 0; i < clouds.length; i++) {
-			//
 			clouds[i] = new Cloud(i * 100 + i, 0);//rand yapılck y = 250 - 0
 		}
 		for (int i = 0; i < coins.length; i++) {
-			//
-			coins[i] = new Coin(i * 200 + i, 450);//rand yapılcak y = 
+			coins[i] = new Coin(i * 200 + i, 100);//rand yapılcak y = 420 - 100
 		}
 		for (int i = 0; i < floors.length; i++) {
 			floors[i] = new Floor(i * 200 + i, 450);//rand yapılcak
@@ -164,6 +162,9 @@ public class Scene extends JPanel{
 		}
 		for (int i = 0; i < coins.length; i++) {
 			g2.drawImage(this.coins[i].getImgObject(), this.coins[i].getX() - this.xPos, this.coins[i].getY(), null);
+		}
+		for (int i = 0; i < blocks.length; i++) {
+			g2.drawImage(this.blocks[i].getImgObject(), this.blocks[i].getX() - this.xPos, this.blocks[i].getY(), null);
 		}
 		
 		/*g2.drawImage(this.imgCastleStart,  10 - this.xPos, 0, null); 
