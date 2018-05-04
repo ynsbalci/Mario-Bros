@@ -11,6 +11,7 @@ public class Character {
 	private boolean movement;
 	private boolean starboard;
 	public int counter;
+	protected boolean life;
 	
 	public Character(int x,int y,int width,int height) {
 		this.x=x;
@@ -20,6 +21,7 @@ public class Character {
 		this.counter=0;
 		this.movement=false;
 		this.starboard=true;;
+		this.life = true;
 	}
 
 	//**** GETTERS ****//
@@ -30,6 +32,7 @@ public class Character {
 	public boolean isMovement() {return movement;}
 	public boolean isStarboard() {return starboard;}
 	public int getCounter() {return counter;}
+	public boolean isLife() {return life;}
 	
 	//**** SETTERS ****//
 	public void setX(int x) {this.x = x;}
@@ -39,6 +42,7 @@ public class Character {
 	public void setMovement(boolean movement) {this.movement = movement;}
 	public void setStarboard(boolean starboard) {this.starboard = starboard;}
 	public void setCounter(int counter) {this.counter = counter;}
+	public void setLife(boolean life) {this.life = life;}
 	
 	//**** FUNCTIONS ****//
 	public Image move(String num, int frequence) {
@@ -123,6 +127,13 @@ public class Character {
 		this.x + this.width < character.getX() + character.getWidth() - 5 ||
 		this.y + this.height <= character.getY() ||
 		this.y >= character.getY() + character.getHeight()){return false;}
+		else{return true;}
+	}
+	protected boolean downContact(Character character){
+		if(this.x + this.width < character.getX() ||
+		this.x > character.getX() + character.getWidth() ||
+		this.y + this.height < character.getY() ||
+		this.y + this.height > character.getY()){return false;}
 		else{return true;}
 	}
 	public boolean near (Character character){

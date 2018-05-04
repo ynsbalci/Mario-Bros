@@ -110,4 +110,14 @@ public class Mario extends Character{
 		}else{return false;}
 	}
 	
+	public void contact(Character character){
+		if((super.firstContact(character) == true) ||
+		(super.backContact(character) == true)){
+			this.setMovement(false);
+			this.setLife(false);
+		}else if(super.downContact(character) == true){
+			character.setMovement(false);
+			character.setLife(false);
+		}
+	}
 }
