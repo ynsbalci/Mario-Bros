@@ -89,5 +89,16 @@ public class Pacman extends Character implements Runnable {
 		}
 		
 	}
+	
+	public Image pattern(){
+		String str;
+		ImageIcon ico;
+		Image img;
+		
+		str = "";
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img;
+	}
 
 }
