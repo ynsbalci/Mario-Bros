@@ -33,13 +33,13 @@ public class Mario extends Character{
 	public void setJump(boolean jump) {this.jump = jump;}
 	
 	//**** METHODES ****//
-	public Image movement(String name, int frequency){
+	/*public Image movement(String name, int frequency){
 		String str;
 		ImageIcon ico;
 		Image img;
 		
 		if(this.isMovement() == false || Main.scene.getxPos() <= 0 ||
-		Main.scene.getxPos() > 4430){
+		Main.scene.getxPos() > 4000){
 			if(this.isStarboard() == true){str = "" + name + "";}
 			else{str = "" + name + "";}
 		}else{
@@ -57,7 +57,7 @@ public class Mario extends Character{
 		img = ico.getImage();
 		return img;
 	}
-	
+	*/
 	public Image jumping() {
 		
 		ImageIcon icon;

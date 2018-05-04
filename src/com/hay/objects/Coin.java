@@ -11,7 +11,6 @@ public class Coin extends Object implements Runnable{
 
 	public Coin(int x, int y) {
 		super(x, y, 30, 30);
-		// TODO Auto-generated constructor stub
 		super.icoObjects=new ImageIcon(getClass().getResource("/images/coin_1.png"));
 		super.imgObjects=super.icoObjects.getImage();
 	}

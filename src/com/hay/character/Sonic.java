@@ -11,13 +11,13 @@ public class Sonic extends Character implements Runnable{
 	private final int PAUSE=15;
 	private int dxsonic;
 	
-	public Sonic(int x, int y, int width, int height) {
-		super(x, y, 27, 30);
+	public Sonic(int x, int y) {
+		super(x, y, 27, 30);//with hwight düznle
 		super.setStarboard(true);
 		super.setMovement(true);
 		this.dxsonic=1;
 		
-		this.iconsonic=new ImageIcon(getClass().getResource(""));
+		this.iconsonic=new ImageIcon(getClass().getResource("/images/sonic.png"));
 		this.imgsonic=this.iconsonic.getImage();
 		
 		Thread timesonic=new Thread(this);

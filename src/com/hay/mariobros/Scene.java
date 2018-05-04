@@ -40,7 +40,7 @@ public class Scene extends JPanel{
 	private int ySol;
     private int ceilingheater=0;
     
-    Random rand =new Random();
+    public Random rand =new Random();
      int a = rand.nextInt(10);//0-10
     
     //Characters
@@ -52,7 +52,7 @@ public class Scene extends JPanel{
 	public Coin[] coins = new Coin[rand.nextInt(25)];
 	public Floor[] floors = new Floor[25];
 	public Mountain[] mountains = new Mountain[rand.nextInt(25)];
-	public Tube[] tubes = new Tube[1];
+	public Tube[] tubes = new Tube[rand.nextInt(25)];
 
 	
 	private ArrayList<Object> objects;
@@ -98,6 +98,7 @@ public class Scene extends JPanel{
 		}
 		for (int i = 0; i < tubes.length; i++) {
 			//
+			tubes[i] = new Tube(i * 75 + i, 300);//rand yapılcak y = 300 - 400
 		}
 		
 		objects = new ArrayList<Object>();
@@ -149,7 +150,12 @@ public class Scene extends JPanel{
 		}
 		this.displacementBackground();
 		
+		//background 
 		g2.drawImage(this.imgBackground, 0, 0, null); //arka plan sabit
+		g2.drawImage(this.imgCastleStart,  25 - this.xPos, 50, null); 
+		g2.drawImage(this.imgStart,  10 - this.xPos, 0, null); 
+		g2.drawImage(this.imgCastleFinish,  4475 - this.xPos, 50, null);
+		g2.drawImage(this.imgFinish,  750-this.xPos, 0, null); 
 		
 		for (int i = 0; i < floors.length; i++) {
 			g2.drawImage(this.floors[i].getImgObject(), this.floors[i].getX() - this.xPos, this.floors[i].getY(), null);
@@ -166,11 +172,11 @@ public class Scene extends JPanel{
 		for (int i = 0; i < blocks.length; i++) {
 			g2.drawImage(this.blocks[i].getImgObject(), this.blocks[i].getX() - this.xPos, this.blocks[i].getY(), null);
 		}
+		for (int i = 0; i < tubes.length; i++) {
+			g2.drawImage(this.tubes[i].getImgObject(), this.tubes[i].getX() - this.xPos, this.tubes[i].getY(), null);
+		}
 		
-		/*g2.drawImage(this.imgCastleStart,  10 - this.xPos, 0, null); 
-		g2.drawImage(this.imgStart,  10 - this.xPos, 0, null); 
-		g2.drawImage(this.imgCastleFinish,  750-this.xPos, 0, null);
-		g2.drawImage(this.imgFinish,  750-this.xPos, 0, null); 
+		/*
 		
 		g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
 		
