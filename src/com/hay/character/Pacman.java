@@ -1,9 +1,7 @@
 package com.hay.character;
 
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
-
 import com.hay.objects.Object;
 
 public class Pacman extends Character implements Runnable {

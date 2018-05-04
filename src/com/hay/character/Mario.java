@@ -2,8 +2,10 @@ package com.hay.character;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import com.hay.audio.Audio;
 import com.hay.objects.Object;
 import com.hay.mariobros.Main;
+import com.hay.objects.Coin;
 
 
 public class Mario extends Character{
@@ -11,6 +13,7 @@ public class Mario extends Character{
 	private ImageIcon iconMario;
 	private boolean jump;
 	private int jump_counter;
+	private int death_counter;
 	
 	public Mario(int x,int y) { 
 		super(x, y, 60, 100);
@@ -18,6 +21,7 @@ public class Mario extends Character{
 		this.imgMario=iconMario.getImage();//Mario'ya atanýyor
 		this.jump=false;
 		this.jump_counter=0;
+		this.death_counter=0;
 	}
 	
 	//**** GETTERS ****//
@@ -121,5 +125,23 @@ public class Mario extends Character{
 			character.setMovement(false);
 			character.setLife(false);
 		}
+	}
+	
+	public Image pattern(){
+		String str;
+		ImageIcon ico;
+		Image img;
+		
+		str = "";
+		if(this.death_counter == 0){Audio.playSound(" ");}
+		if(this.death_counter == 100){Audio.playSound(" ");}
+		this.death_counter++;
+		if(this.death_counter > 100){
+			str = " ";
+			this.setY(this.getY() - 1);
+		}
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img;
 	}
 }
