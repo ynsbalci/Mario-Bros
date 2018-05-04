@@ -2,7 +2,7 @@
 
  this project is a software engineering application
 
-# PACKEGES LIST
+# PACKAGES LIST
 - com.hay.character
 - com.hay.mariobros
 - com.hay.objects
@@ -24,6 +24,7 @@
 > com.hay.objects
 - Block
 - Cloud
+- Floor
 - Mountain
 - Object
 - Tube

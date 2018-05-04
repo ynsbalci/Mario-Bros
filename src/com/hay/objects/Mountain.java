@@ -1,10 +1,14 @@
 package com.hay.objects;
 
+import javax.swing.ImageIcon;
+
 public class Mountain extends Object{
 
-	public Mountain(int x, int y, int width, int height) {
-		super(x, y, width, height);
-		// TODO Auto-generated constructor stub
+	//***** CONSTRUCTER *****//
+	public Mountain(int x, int y) {	
+		super(x, y, 300, 200);
+		super.icoObjects = new ImageIcon(getClass().getResource("/images/mountain_1.png"));
+		super.imgObjects = this.icoObjects.getImage();
 	}
 
 }

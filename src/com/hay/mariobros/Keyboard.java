@@ -13,20 +13,22 @@ public  class Keyboard implements KeyListener {
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
 			
 			if (Main.scene.getxPos() == -1) {
-				Main.scene.setDx(1);
-				Main.scene.setxPos(0); //düzenlencek
-				Main.scene.setxBg1(0); //düzenck
-				Main.scene.setxBg2(0); ////düzenlþencek
+				Main.scene.setxPos(0);
 			}
-			Main.scene.mario.setMovement(true); //hareket edebilir 
-			//Main.scene.mario.
+			//Main.mario.set;
 			Main.scene.setDx(1);
+			
 			
 		}else if(e.getKeyCode()==KeyEvent.VK_LEFT)
 		{
-			Main.scene.mario.setMovement(true); //hareket edebilir
-			//Main.scene.mario.
+			if (Main.scene.getxPos() == 401) {
+				Main.scene.setxPos(400);
+			}
+			//Main.mario.set;
 			Main.scene.setDx(-1);
+		}
+		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
+			//Main.scene.mario.setJump(true);
 		}
 		
 	}
@@ -34,6 +36,7 @@ public  class Keyboard implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		//elimizi tustan cektigimiz anda calisan olaydir
+		//Main.scene.mario.setMovement(false);
 		Main.scene.setDx(0);	
 	}
 
