@@ -4,6 +4,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import com.hay.objects.Object;
 import com.hay.mariobros.Main;
+import com.hay.objects.Coin;
 
 public class Mario extends Character{
 	private Image imgMario;
@@ -27,7 +28,30 @@ public class Mario extends Character{
 	public void setJump(boolean jump) {this.jump = jump;}
 	
 	//**** METHODES ****//
-	public Image movement(String name, int frequency)
+	public Image movement(String name, int frequency){
+		String str;
+		ImageIcon ico;
+		Image img;
+		
+		if(this.isMovement() == false || Main.scene.getxPos() <= 0 ||
+		Main.scene.getxPos() > 4430){
+			if(this.isStarboard() == true){str = "" + name + "";}
+			else{str = "" + name + "";}
+		}else{
+			this.counter++;
+			if(this.counter / frequency == 0){
+				if(this.isStarboard() == true){str = "" + name + "";}
+				else{str = "" + name + "";}
+			}else{
+				if(this.isStarboard() == true){str = "" + name + "";}
+				else{str = "" + name + "";}
+			}
+			if(this.counter == 2 * frequency) { this.counter = 0;}
+		}
+		ico = new ImageIcon(str);
+		img = ico.getImage();
+		return img;
+	}
 	public Image jumping() {
 		
 		ImageIcon icon;
@@ -77,6 +101,13 @@ public class Mario extends Character{
 		}else if(super.upContact(object) == false && this.jump == false){
 			Main.scene.setCeilingheater(0);
 		}
+	}
+	
+	public boolean coinContact(Coin coin){
+		if (this.backContact(coin) == true || this.firstContact(coin) == true ||
+			this.downContact(coin) == true || this.upContact(coin) == true){
+			return true;
+		}else{return false;}
 	}
 	
 }

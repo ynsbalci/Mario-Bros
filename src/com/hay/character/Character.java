@@ -68,6 +68,9 @@ public class Character {
 		img = ico.getImage();
 		return img;
 	}
+	public void displacement(){
+		if(Main.scene.getxPos() >= 0){this.x = this.x - Main.scene.getDx();}
+	}
 	
 	protected boolean firstContact(Object object) {
 		if(this.x + this.width < object.getX() || this.x + this.width > object.getX() + 5
@@ -104,6 +107,30 @@ public class Character {
 		if((this.x > object.getX() - 10 && this.x < object.getX() + object.getWidth() + 10)
 		|| (this.x + this.width > object.getX() - 10 && this.x + this.width < object.getX() +object.getWidth() + 10)){return true;}
 		else {return false;}
+	}
+	
+	protected boolean firstContact(Character character){
+		if(this.isStarboard() == true){
+			if(this.x + this.width < character.getX() ||
+			this.x + this.width > character.getX() + 5 ||
+			this.y + this.height <= character.getY() ||
+			this.y >= character.getY() + character.getHeight()){return false;}
+			else{return true;}
+		}else{return false;}
+	}
+	protected boolean backContact(Character character){
+		if(this.x > character.getX() + character.getWidth() ||
+		this.x + this.width < character.getX() + character.getWidth() - 5 ||
+		this.y + this.height <= character.getY() ||
+		this.y >= character.getY() + character.getHeight()){return false;}
+		else{return true;}
+	}
+	public boolean near (Character character){
+		if((this.x > character.getX() - 10 &&
+			this.x < character.getX() + character.getWidth() + 10) ||
+			(this.x + this.width > character.getX() - 10 &&
+			this.x + this.width < character.getX() + character.getWidth() + 10)){return true;}
+		else{return false;}
 	}
 	
 }
