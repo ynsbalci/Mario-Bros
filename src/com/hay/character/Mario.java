@@ -3,7 +3,6 @@ package com.hay.character;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import com.hay.objects.Object;
-
 import com.hay.mariobros.Main;
 
 public class Mario extends Character{
@@ -28,11 +27,12 @@ public class Mario extends Character{
 	public void setJump(boolean jump) {this.jump = jump;}
 	
 	//**** METHODES ****//
+	public Image movement(String name, int frequency)
 	public Image jumping() {
 		
 		ImageIcon icon;
 		Image img;
-		String str = null;
+		String str;
 		
 		this.jump_counter++;
 		if(this.jump_counter<=40) {
