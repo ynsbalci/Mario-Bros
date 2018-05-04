@@ -6,29 +6,29 @@ import com.hay.objects.Object;
 
 public class Pacman extends Character implements Runnable {
 
-	private Image imgturtle;
-	private ImageIcon iconturtle;
+	private Image imgpacman;
+	private ImageIcon iconpacman;
 	private final int PAUSE=15;
-	private int dxturtle;
+	private int dxpacman;
 	
 	public Pacman(int x,int y) {
 		super(x, y, 27, 30);
 		super.setStarboard(true);
 		super.setMovement(true);
-		this.dxturtle=1;
+		this.dxpacman=1;
 		
-		this.iconturtle=new ImageIcon(getClass().getResource("hhjjhjhj"));
-		this.imgturtle=this.iconturtle.getImage();
+		this.iconpacman=new ImageIcon(getClass().getResource("hhjjhjhj"));
+		this.imgpacman=this.iconpacman.getImage();
 		
-		Thread timeturtle=new Thread(this);
-		timeturtle.start();
+		Thread timepacman=new Thread(this);
+		timepacman.start();
 	}
 	
 	
 	
 	//Getters
-	public Image getImgturtle() {
-		return imgturtle;
+	public Image getImagePacman() {
+		return imgpacman;
 	}
 
 	//Setters
@@ -37,11 +37,11 @@ public class Pacman extends Character implements Runnable {
 	
 	public void move() {
 		if(super.isStarboard()==true) {
-			this.dxturtle=1;
+			this.dxpacman=1;
 		}else {
-			this.dxturtle=-1;
+			this.dxpacman=-1;
 		}
-		super.setX(super.getX()+this.dxturtle);
+		super.setX(super.getX()+this.dxpacman);
 	}
 	
 	
@@ -70,20 +70,20 @@ public class Pacman extends Character implements Runnable {
 	public void contact(Object object ) {
 		if(super.firstContact(object)==true && this.isStarboard()==true) {
 			super.setStarboard(false);
-			this.dxturtle=-1;
+			this.dxpacman=-1;
 		}else if(super.backContact(object)==true && this.isStarboard()==false) {
 			super.setStarboard(true);
-			this.dxturtle=1;	
+			this.dxpacman=1;	
 		}
 		
 	}
 	public void contact(Character character ) {
 		if(super.firstContact(character)==true && this.isStarboard()==true) {
 			super.setStarboard(false);
-			this.dxturtle=-1;
+			this.dxpacman=-1;
 		}else if(super.backContact(character)==true && this.isStarboard()==false) {
 			super.setStarboard(true);
-			this.dxturtle=1;	
+			this.dxpacman=1;	
 		}
 		
 	}
