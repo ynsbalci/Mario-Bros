@@ -17,8 +17,8 @@ public class Object {
 	public Object(int x, int y, int width, int height) {
 		this.x = x;
 		this.y = y;
-		this.height = height;
 		this.width = width;
+		this.height = height;
 	}
 	
 	//**** GETTERS ****//

@@ -50,8 +50,6 @@ public class Character {
 		ImageIcon ico;
 		Image img;
 		
-		//hareket ediyormu diye baktý 
-		//ona göre spritlar aarýnsan uygun olaný döndürdük
 		if (this.movement == false || Main.scene.getxPos() <= 0) {
 			if(this.starboard == true) {str = "/images/" + name + "Right.png"; }
 			else {str = "/images/" + name + "Left.png"; }
