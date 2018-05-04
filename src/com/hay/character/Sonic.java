@@ -1,14 +1,10 @@
 package com.hay.character;
 
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
-
 import com.hay.objects.Object;
 
 public class Sonic extends Character implements Runnable{
-
-
 	
 	private Image imgsonic;
 	private ImageIcon iconsonic;
@@ -86,6 +82,17 @@ public class Sonic extends Character implements Runnable{
 			this.dxsonic=1;	
 		}
 		
+	}
+	public Image pattern(){
+		String str;
+		ImageIcon ico;
+		Image img;
+		
+		if(this.isStarboard() == true){str = " ";}
+		else{str = " ";}
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img;
 	}
 
 }
