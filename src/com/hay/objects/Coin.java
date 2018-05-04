@@ -1,85 +1,55 @@
 package com.hay.objects;
 
 import java.awt.Image;
+
 import javax.swing.ImageIcon;
-import com.hay.character.Character;
 
+public class Coin extends Object implements Runnable{
 
-public class Coin extends Character implements Runnable {
-
-	private Image imgcoin;
-	private ImageIcon iconcoin;
+	private int counter;
 	private final int PAUSE=15;
-	private int dxcoin;
-	
-	
-	public Coin(int x,int y) {
-		super(x, y, 27, 30);
-		super.setStarboard(true);
-		super.setMovement(true);
-		this.dxcoin=1;
-		
-		this.iconcoin=new ImageIcon(getClass().getResource("hhjjhjhj"));
-		this.imgcoin=this.iconcoin.getImage();
-		
-		Thread timecoin=new Thread(this);
-		timecoin.start();
-	}
-	
-	//Getters
-	public Image getImgcoin() {
-		return imgcoin;
-	}
 
-	//Setters
-
-	//Methods
-	
-	public void move() {
-		if(super.isStarboard()==true) {
-			this.dxcoin=1;
+	public Coin(int x, int y) {
+		super(x, y, 30, 30);
+		// TODO Auto-generated constructor stub
+		super.icoObjects=new ImageIcon(getClass().getResource(""));
+		super.imgObjects=super.icoObjects.getImage();
+	}
+	public Image move() {
+		String str;
+		ImageIcon icon;
+		Image img;
+		
+		this.counter++;
+		
+		if (this.counter/100==0) {
+			str="";
 		}else {
-			this.dxcoin=-1;
+			str="";
 		}
-		super.setX(super.getX()+this.dxcoin);
+		if (this.counter==200) {
+			this.counter=0;
+		}
+		
+		icon=new ImageIcon(getClass().getResource(str));
+		img=icon.getImage();
+		
+		return img;
 	}
-	
-	
 	@Override
 	public void run() {
-		try {
+		 try {
 			Thread.sleep(20);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		while(true) {
+		 while (true) {
 			this.move();
 			try {
 				Thread.sleep(PAUSE);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-		}
-		
-	}
-	public void contact(Object object ) {
-		if(super.firstContact(object)==true && this.isStarboard()==true) {
-			super.setStarboard(false);
-			this.dxcoin=-1;
-		}else if(super.backContact(object)==true && this.isStarboard()==false) {
-			super.setStarboard(true);
-			this.dxcoin=1;	
-		}
-		
-	}
-	public void contact(Character character ) {
-		if(super.firstContact(character)==true && this.isStarboard()==true) {
-			super.setStarboard(false);
-			this.dxcoin=-1;
-		}else if(super.backContact(character)==true && this.isStarboard()==false) {
-			super.setStarboard(true);
-			this.dxcoin=1;	
 		}
 		
 	}

@@ -45,7 +45,7 @@ public class Character {
 	public void setLife(boolean life) {this.life = life;}
 	
 	//**** FUNCTIONS ****//
-	public Image move(String num, int frequence) {
+	public Image move(String name, int frequence) {
 		String str;
 		ImageIcon ico;
 		Image img;
@@ -53,18 +53,18 @@ public class Character {
 		//hareket ediyormu diye baktý 
 		//ona göre spritlar aarýnsan uygun olaný döndürdük
 		if (this.movement == false || Main.scene.getxPos() <= 0) {
-			if(this.starboard == true) {str = "/images/" + num + "Right.png"; }
-			else {str = "/images/" + num + "Left.png"; }
+			if(this.starboard == true) {str = "/images/" + name + "Right.png"; }
+			else {str = "/images/" + name + "Left.png"; }
 		}
 		else {
 			this.counter++;
 			if(this.counter / frequence == 0) {
-				if(this.starboard == true) {str = "/images/" + num + "Right.png"; }
-				else {str = "/images/" + num + "Left.png"; }
+				if(this.starboard == true) {str = "/images/" + name + "Right.png"; }
+				else {str = "/images/" + name + "Left.png"; }
 			}
 			else {
-				if(this.starboard == true) {str = "/images/" + num + "MoveRight.png"; }
-				else {str = "/images/" + num + "MoveLeft.png"; }
+				if(this.starboard == true) {str = "/images/" + name + "MoveRight.png"; }
+				else {str = "/images/" + name + "MoveLeft.png"; }
 			}
 			if(this.counter == 2 * frequence) {this.counter = 0;}
 		}
