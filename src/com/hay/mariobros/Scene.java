@@ -48,10 +48,10 @@ public class Scene extends JPanel{
 	
 	//Objects
 	public Block[] blocks = new Block[1];
-	public Cloud[] clouds = new Cloud[1];
-	public Coin[] coins = new Coin[1];
-	public Floor[] floors = new Floor[1];
-	public Mountain[] mountains = new Mountain[1];
+	public Cloud[] clouds = new Cloud[25];
+	public Coin[] coins = new Coin[rand.nextInt(25)];
+	public Floor[] floors = new Floor[25];
+	public Mountain[] mountains = new Mountain[rand.nextInt(25)];
 	public Tube[] tubes = new Tube[1];
 
 	
@@ -63,7 +63,7 @@ public class Scene extends JPanel{
 		
 		this.xBackground = -50;
 		this.dx = 0;
-		this.xPos = -1;
+		this.xPos = 0;
 		
 		//
 		icoBackground = new ImageIcon(getClass().getResource("/images/background.png"));
@@ -85,17 +85,18 @@ public class Scene extends JPanel{
 			blocks[i] = new Block(0, 0);
 		}
 		for (int i = 0; i < clouds.length; i++) {
-			//	
+			//
+			clouds[i] = new Cloud(i * 100 + i, 0);//rand yapılck y = 250 - 0
 		}
 		for (int i = 0; i < coins.length; i++) {
 			//
+			coins[i] = new Coin(i * 200 + i, 450);//rand yapılcak y = 
 		}
 		for (int i = 0; i < floors.length; i++) {
-			//
-			floors[i] = new Floor(0, 450);
+			floors[i] = new Floor(i * 200 + i, 450);//rand yapılcak
 		}
 		for (int i = 0; i < mountains.length; i++) {
-			//
+			mountains[i] = new Mountain(i * 300 + i, 250);//rand yapılcak
 		}
 		for (int i = 0; i < tubes.length; i++) {
 			//
@@ -130,7 +131,7 @@ public class Scene extends JPanel{
 	//**** FUNCTIONS ****//
 	public void displacementBackground() {
 		//
-		if (this.xPos >= 0 && this.xPos <= 400) {
+		if (this.xPos >= 0 && this.xPos <= 4000) {
 			this.xPos = this.xPos + this.dx;
 			this.xBackground = this.xBackground - this.dx;
 		}
@@ -151,7 +152,24 @@ public class Scene extends JPanel{
 		this.displacementBackground();
 		
 		g2.drawImage(this.imgBackground, 0, 0, null); //arka plan sabit
-		g2.drawImage(this.imgCastleStart,  this.xPos, 0, null); 
+		
+		for (int i = 0; i < floors.length; i++) {
+			g2.drawImage(this.floors[i].getImgObject(), this.floors[i].getX() - this.xPos, this.floors[i].getY(), null);
+		}
+		for (int i = 0; i < mountains.length; i++) {
+			g2.drawImage(this.mountains[i].getImgObject(), this.mountains[i].getX() - this.xPos, this.mountains[i].getY(), null);
+		}
+		for (int i = 0; i < clouds.length; i++) {
+			g2.drawImage(this.clouds[i].getImgObject(), this.clouds[i].getX() - this.xPos, this.clouds[i].getY(), null);
+		}
+		for (int i = 0; i < coins.length; i++) {
+			g2.drawImage(this.coins[i].getImgObject(), this.coins[i].getX() - this.xPos, this.coins[i].getY(), null);
+		}
+		
+		/*g2.drawImage(this.imgCastleStart,  10 - this.xPos, 0, null); 
+		g2.drawImage(this.imgStart,  10 - this.xPos, 0, null); 
+		g2.drawImage(this.imgCastleFinish,  750-this.xPos, 0, null);
+		g2.drawImage(this.imgFinish,  750-this.xPos, 0, null); 
 		
 		g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
 		
@@ -159,7 +177,7 @@ public class Scene extends JPanel{
 		
 		g2.drawImage(this.floors[0].getImgObject(), floors[0].getX(), floors[0].getY(), null);
 		
-		/*this.tube.displacement();
+		this.tube.displacement();
 		
 		g2.drawImage(this.imgBg1, this.xBg1, 0, null);
 		g2.drawImage(this.imgBg2, this.xBg2, 0, null);

@@ -12,6 +12,8 @@ public  class Keyboard implements KeyListener {
 		
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
 			
+			System.out.println("sag " + Main.scene.getxPos());
+			
 			if (Main.scene.getxPos() == -1) {
 				Main.scene.setxPos(0);
 			}
@@ -19,10 +21,13 @@ public  class Keyboard implements KeyListener {
 			Main.scene.setDx(1);
 			
 			
-		}else if(e.getKeyCode()==KeyEvent.VK_LEFT)
+		}
+		else if(e.getKeyCode()==KeyEvent.VK_LEFT)
 		{
-			if (Main.scene.getxPos() == 401) {
-				Main.scene.setxPos(400);
+			System.out.println("sol " + Main.scene.getxPos());
+			
+			if (Main.scene.getxPos() == 4001) {
+				Main.scene.setxPos(4000);
 			}
 			//Main.mario.set;
 			Main.scene.setDx(-1);
