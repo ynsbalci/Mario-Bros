@@ -12,7 +12,7 @@ public class Coin extends Object implements Runnable{
 	public Coin(int x, int y) {
 		super(x, y, 30, 30);
 		// TODO Auto-generated constructor stub
-		super.icoObjects=new ImageIcon(getClass().getResource(""));
+		super.icoObjects=new ImageIcon(getClass().getResource("/images/coin_1.png"));
 		super.imgObjects=super.icoObjects.getImage();
 	}
 	public Image move() {
@@ -23,9 +23,9 @@ public class Coin extends Object implements Runnable{
 		this.counter++;
 		
 		if (this.counter/100==0) {
-			str="";
+			str="/images/coin_1.png";
 		}else {
-			str="";
+			str="/images/coin_2.png";
 		}
 		if (this.counter==200) {
 			this.counter=0;

@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import com.hay.character.Mario;
 import com.hay.objects.Block;
 import com.hay.objects.Cloud;
-import com.hay.objects.Piece;
+import com.hay.objects.Coin;
 import com.hay.objects.Floor;
 import com.hay.objects.Mountain;
 import com.hay.objects.Tube;
@@ -47,18 +47,11 @@ public class Scene extends JPanel{
 	public Mario mario;
 	
 	//Objects
-	public Block[] blocks = new Block[1];
-<<<<<<< HEAD
+	public Block[] blocks = new Block[rand.nextInt(25)];
 	public Cloud[] clouds = new Cloud[25];
 	public Coin[] coins = new Coin[rand.nextInt(25)];
 	public Floor[] floors = new Floor[25];
 	public Mountain[] mountains = new Mountain[rand.nextInt(25)];
-=======
-	public Cloud[] clouds = new Cloud[1];
-	public Piece[] coins = new Piece[1];
-	public Floor[] floors = new Floor[1];
-	public Mountain[] mountains = new Mountain[1];
->>>>>>> 339a7d96832674709e78c1794671e6b5e90764a6
 	public Tube[] tubes = new Tube[1];
 
 	
@@ -89,15 +82,13 @@ public class Scene extends JPanel{
 		
 		//Objects
 		for (int i = 0; i < blocks.length; i++) {
-			blocks[i] = new Block(0, 0);
+			blocks[i] = new Block(i * 50 + i, 0);
 		}
 		for (int i = 0; i < clouds.length; i++) {
-			//
 			clouds[i] = new Cloud(i * 100 + i, 0);//rand yapılck y = 250 - 0
 		}
 		for (int i = 0; i < coins.length; i++) {
-			//
-			coins[i] = new Coin(i * 200 + i, 450);//rand yapılcak y = 
+			coins[i] = new Coin(i * 200 + i, 100);//rand yapılcak y = 420 - 100
 		}
 		for (int i = 0; i < floors.length; i++) {
 			floors[i] = new Floor(i * 200 + i, 450);//rand yapılcak
@@ -171,6 +162,9 @@ public class Scene extends JPanel{
 		}
 		for (int i = 0; i < coins.length; i++) {
 			g2.drawImage(this.coins[i].getImgObject(), this.coins[i].getX() - this.xPos, this.coins[i].getY(), null);
+		}
+		for (int i = 0; i < blocks.length; i++) {
+			g2.drawImage(this.blocks[i].getImgObject(), this.blocks[i].getX() - this.xPos, this.blocks[i].getY(), null);
 		}
 		
 		/*g2.drawImage(this.imgCastleStart,  10 - this.xPos, 0, null); 
