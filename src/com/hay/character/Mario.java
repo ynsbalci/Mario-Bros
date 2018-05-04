@@ -4,7 +4,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 import com.hay.objects.Object;
 import com.hay.mariobros.Main;
-import com.hay.objects.Coin;
+
 
 public class Mario extends Character{
 	private Image imgMario;
@@ -22,6 +22,7 @@ public class Mario extends Character{
 	
 	//**** GETTERS ****//
 	public Image getImgMario() {return imgMario;}
+	
 	public boolean isJump() {return jump;}
 	
 	//**** SETTERS ****//
@@ -52,6 +53,7 @@ public class Mario extends Character{
 		img = ico.getImage();
 		return img;
 	}
+	
 	public Image jumping() {
 		
 		ImageIcon icon;
@@ -103,7 +105,7 @@ public class Mario extends Character{
 		}
 	}
 	
-	public boolean coinContact(Coin coin){
+	public boolean coinContact(Object coin){
 		if (this.backContact(coin) == true || this.firstContact(coin) == true ||
 			this.downContact(coin) == true || this.upContact(coin) == true){
 			return true;

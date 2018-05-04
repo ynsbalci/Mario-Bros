@@ -151,9 +151,12 @@ public class Scene extends JPanel{
 		this.displacementBackground();
 		
 		g2.drawImage(this.imgBackground, 0, 0, null); //arka plan sabit
-		g2.drawImage(this.imgCastleStart,  this.xPos, 0, null);
+		g2.drawImage(this.imgCastleStart,  this.xPos, 0, null); 
 		
 		g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
+		
+		g2.drawImage(this.mario.getImgMario(), this.mario.getX(), this.mario.getY(), null);
+		
 		g2.drawImage(this.floors[0].getImgObject(), floors[0].getX(), floors[0].getY(), null);
 		
 		/*this.tube.displacement();

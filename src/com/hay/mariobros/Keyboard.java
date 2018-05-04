@@ -28,7 +28,7 @@ public  class Keyboard implements KeyListener {
 			Main.scene.setDx(-1);
 		}
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
-			//Main.scene.mario.setJump(true);
+			Main.scene.mario.setJump(true);
 		}
 		
 	}
