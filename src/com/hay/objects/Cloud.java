@@ -12,7 +12,7 @@ public class Cloud extends Object{
 		String str = "/images/cloud_1.png";
 		if (Main.scene.rand.nextInt(1) == 1) 
 			str = "/images/cloud_2.png";
-		super.icoObjects = new ImageIcon(getClass().getResource(str));
+		super.icoObjects = new ImageIcon(getClass().getResource("/images/cloud_2.png"));
 		super.imgObjects = this.icoObjects.getImage();
 
 	}
