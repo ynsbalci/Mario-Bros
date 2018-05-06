@@ -94,7 +94,7 @@ public class Scene extends JPanel{
 		this.imgFinish = this.icoFinish.getImage();
 		
 		//Characters
-		mario = new Mario(370, 300);
+		mario = new Mario(370, 350);
 		rapunzel = new Rapunzel(0, 0);
 		
 		pacmans = new ArrayList<Pacman>();
@@ -186,7 +186,7 @@ public class Scene extends JPanel{
 	private boolean isWin() {
 		if (this.countDown.getTimeCounter() > 0 && this.mario.isLife() && this.score.getNbreCoins() == 10 && this.xPos > 4000) {
 			/*if (this.ok) {
-				Audio.playSound("/audios/wim.waw");
+				Audio.playSound("/audios/wim.wav");
 				this.ok = false;
 			}*/
 			return true;
@@ -295,7 +295,7 @@ public class Scene extends JPanel{
 		for (int i = 0; i < coins.size(); i++) {
 			if (this.mario.near(this.coins.get(i))) {
 				if (this.mario.coinContact(this.coins.get(i))) {
-					Audio.playSound("/audios/coin.waw");
+					Audio.playSound("/audios/coin.wav");
 					this.coins.remove(i);
 					this.score.setNbreCoins(this.score.getNbreCoins() + 1);
 				}
@@ -308,7 +308,7 @@ public class Scene extends JPanel{
 				//
 				this.mario.contact(this.pacmans.get(i));
 				if (!this.pacmans.get(i).isLife()) {
-					Audio.playSound("/audios/crush.waw");
+					Audio.playSound("/audios/crush.wav");
 				}
 			}
 		}
@@ -317,7 +317,7 @@ public class Scene extends JPanel{
 				//
 				this.mario.contact(this.sonics.get(i));
 				if (!this.sonics.get(i).isLife()) {
-					Audio.playSound("/audios/crush.waw");
+					Audio.playSound("/audios/crush.wav");
 				}
 			}
 		}
@@ -383,6 +383,7 @@ public class Scene extends JPanel{
 		for (int i = 0; i < tubes.size(); i++) {
 			g2.drawImage(this.tubes.get(i).getImgObject(), this.tubes.get(i).getX() - this.xPos, this.tubes.get(i).getY(), null);
 		}
+		
 		
 		//mario
 		if (this.mario.isLife()) {

@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 import com.hay.audio.Audio;
 import com.hay.objects.Object;
 import com.hay.mariobros.Main;
-import com.hay.objects.Coin;
 
 
 public class Mario extends Character{
@@ -134,8 +133,8 @@ public class Mario extends Character{
 		Image img;
 		
 		str = "/images/bang.png";
-		if(this.death_counter == 0){Audio.playSound("/audios/bang.waw");}
-		if(this.death_counter == 100){Audio.playSound("/audios/lost.waw");}
+		if(this.death_counter == 0){Audio.playSound("/audios/bang.wav");}
+		if(this.death_counter == 100){Audio.playSound("/audios/lost.wav");}
 		this.death_counter++;
 		if(this.death_counter > 100){
 			str = "/images/marioDie.png";

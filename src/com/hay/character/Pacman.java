@@ -27,7 +27,6 @@ public class Pacman extends Character implements Runnable {
 	}
 	
 	
-	
 	//Getters
 	public Image getImgPacman() {
 		return imgPacman;
@@ -48,8 +47,6 @@ public class Pacman extends Character implements Runnable {
 
 	}
 	
-	
-
 
 	@Override
 	public void run() {
