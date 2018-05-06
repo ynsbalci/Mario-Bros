@@ -3,7 +3,6 @@ package com.hay.mariobros;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -24,7 +23,7 @@ import com.hay.objects.Tube;
 import com.hay.panel.CountDown;
 import com.hay.panel.Score;
 
-import javafx.scene.text.Font;
+import java.awt.Font;
 
 
 @SuppressWarnings("serial")
@@ -69,7 +68,7 @@ public class Scene extends JPanel{
 	
 	//
 	private Score score;
-	private Font font;
+	private java.awt.Font font;
 	private CountDown countDown;
 	
 	
@@ -144,7 +143,7 @@ public class Scene extends JPanel{
 		
 		
 		score = new Score();
-		font = new Font("Arial", 18);
+		font = new Font("Arial", Font.PLAIN, 18);
 		countDown = new CountDown();
 		
 		Thread timerScreen = new Thread(new Timer());
@@ -301,7 +300,7 @@ public class Scene extends JPanel{
 				//
 				this.mario.contact(this.pacmans.get(i));
 				if (!this.pacmans.get(i).isLife()) {
-					Audio.playSound("");//yazılcak
+					Audio.playSound("/audios/crush.waw");
 				}
 			}
 		}
@@ -310,7 +309,7 @@ public class Scene extends JPanel{
 				//
 				this.mario.contact(this.pacmans.get(i));
 				if (!this.sonics.get(i).isLife()) {
-					Audio.playSound("");//yazılcak
+					Audio.playSound("/audios/crush.waw");
 				}
 			}
 		}
@@ -350,8 +349,10 @@ public class Scene extends JPanel{
 		//update
 		//background 
 		g2.drawImage(this.imgBackground, 0, 0, null); //arka plan sabit
+		
 		g2.drawImage(this.imgCastleStart,  25 - this.xPos, 50, null); 
 		g2.drawImage(this.imgStart,  10 - this.xPos, 0, null); 
+		
 		g2.drawImage(this.imgCastleFinish,  4475 - this.xPos, 50, null);
 		g2.drawImage(this.imgFinish,  750-this.xPos, 0, null); 
 		
@@ -375,32 +376,54 @@ public class Scene extends JPanel{
 			g2.drawImage(this.tubes.get(i).getImgObject(), this.tubes.get(i).getX() - this.xPos, this.tubes.get(i).getY(), null);
 		}
 		
-		
-		
-		/*
-		
-		g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
-		
-		g2.drawImage(this.mario.getImgMario(), this.mario.getX(), this.mario.getY(), null);
-		
-		g2.drawImage(this.floors[0].getImgObject(), floors[0].getX(), floors[0].getY(), null);
-		
-		this.tube.displacement();
-		
-		g2.drawImage(this.imgBg1, this.xBg1, 0, null);
-		g2.drawImage(this.imgBg2, this.xBg2, 0, null);
+		//mario
+		if (this.mario.isLife()) {
+			//
+			if (this.mario.isJump()) {
+				g2.drawImage(this.mario.jumping(), this.mario.getX(), this.mario.getY(), null);
 
-		g2.drawImage(this.imgCastleStart,  10-this.xPos, 95, null);
-		g2.drawImage(this.imgStart, 220-this.xPos, 234, null);
+			} else {
+				g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
+			}
+		}
+		else {
+			g2.drawImage(this.mario.Die(), this.mario.getX(), this.mario.getY(), null);
+		}
 		
-		g2.drawImage(this.tube.getImgTube(), this.tube.getX(), this.tube.getY(), null);
-		g2.drawImage(this.block.getImgBlock(), this.block.getX() - this.xPos, this.block.getY(), null);
-		if(this.mario.isMovement()) {
-			//g2.drawImage(this.mario.isMovement(), this.mario.getX(), this.mario.getY(), null);
-					
-		}else {
-			g2.drawImage(this.mario.move("mario", 25), this.mario.getX(), this.mario.getY(), null);
-		}*/
+		//pacmans
+		for (int i = 0; i < pacmans.size(); i++) {
+			
+			if (this.pacmans.get(i).isLife()) {
+
+				g2.drawImage(this.pacmans.get(i).move("pacman", 25), this.pacmans.get(i).getX(), this.pacmans.get(i).getY(), null);
+
+			}
+			else {
+				//g2.drawImage(this.mario.Die(), this.mario.getX(), this.mario.getY(), null);
+			}
+		}
+		
+		//sonics
+		for (int i = 0; i < sonics.size(); i++) {
+			
+			if (this.sonics.get(i).isLife()) {
+
+				g2.drawImage(this.sonics.get(i).move("pacman", 25), this.sonics.get(i).getX(), this.sonics.get(i).getY(), null);
+
+			}
+			else {
+				//g2.drawImage(this.mario.die, this.mario.getX(), this.mario.getY(), null)
+			}
+		}
+		
+		g2.setFont(font);
+		g2.drawString(this.score.getNbreCoins() + " / " + this.score.getNBRE_TOTAL_COINS(), 100, 100);
+		
+		g2.drawString(this.countDown.getStr(), 5, 25);
+		
+		if (this.isGameOver()) {
+			//bitti
+		}
 	}
 
 }
