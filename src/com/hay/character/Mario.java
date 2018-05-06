@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 import com.hay.audio.Audio;
 import com.hay.objects.Object;
 import com.hay.mariobros.Main;
-import com.hay.objects.Coin;
 
 
 public class Mario extends Character{
@@ -17,8 +16,8 @@ public class Mario extends Character{
 	
 	public Mario(int x,int y) { 
 		super(x, y, 60, 100);
-		this.iconMario=new ImageIcon("/images/mario.png");// karakter için mevcut resim alýnýyor
-		this.imgMario=iconMario.getImage();//Mario'ya atanýyor
+		this.iconMario=new ImageIcon("/images/marioMoveRight.png");
+		this.imgMario=iconMario.getImage();
 		this.jump=false;
 		this.jump_counter=0;
 		this.death_counter=0;
@@ -33,23 +32,24 @@ public class Mario extends Character{
 	public void setJump(boolean jump) {this.jump = jump;}
 	
 	//**** METHODES ****//
-	/*public Image movement(String name, int frequency){
-		String str;
+	@Override
+	public Image move(String name, int frequency){
+		String str = "";
 		ImageIcon ico;
 		Image img;
 		
 		if(this.isMovement() == false || Main.scene.getxPos() <= 0 ||
 		Main.scene.getxPos() > 4000){
-			if(this.isStarboard() == true){str = "" + name + "";}
-			else{str = "" + name + "";}
+			if(this.isStarboard() == true){str = "/images/" + name + "Right.png";}
+			else{str = "/images/" + name + "";}
 		}else{
 			this.counter++;
 			if(this.counter / frequency == 0){
-				if(this.isStarboard() == true){str = "" + name + "";}
-				else{str = "" + name + "";}
+				if(this.isStarboard() == true){str = "/images/" + name + "Right.png";}
+				else{str = "/images/" + name + "Left.png";}
 			}else{
-				if(this.isStarboard() == true){str = "" + name + "";}
-				else{str = "" + name + "";}
+				if(this.isStarboard() == true){str = "/images/" + name + "MoveRight.png";}
+				else{str = "/images/" + name + "MoveLeft.png";}
 			}
 			if(this.counter == 2 * frequency) { this.counter = 0;}
 		}
@@ -57,28 +57,28 @@ public class Mario extends Character{
 		img = ico.getImage();
 		return img;
 	}
-	*/
+	
 	public Image jumping() {
 		
 		ImageIcon icon;
 		Image img;
-		String str;
+		String str = "";
 		
 		this.jump_counter++;
 		if(this.jump_counter<=40) {
 			if(this.getY() > Main.scene.getCeilingheater()){this.setY(this.getY()-4);}
-			else {this.jump_counter=41;}
-			if(this.isStarboard()==true) {str="dsfds";}
-			else {str="fsfds";}
+			else {this.jump_counter = 41; }
+			if(this.isStarboard()==true) {str="/images/marioJumpRight.png";}
+			else {str="/images/marioJumpLeft.png";}
 		
 		}else if(this.getY() + this.getHeight() < Main.scene.getySol()){
 				this.setY(this.getY() + 1);
-			if(this.isStarboard() == true){str = "";}
-			else{str = "";}
+			if(this.isStarboard() == true){str = "/images/marioJumpRight.png";}
+			else{str = "/images/marioJumpLeft.png";}
 			
 		}else{
-			if(this.isStarboard() == true){str = "";}
-			else{str = "";}
+			if(this.isStarboard() == true){str = "/images/marioRight.png";}
+			else{str = "/images/marioLeft.png";}
 			this.jump = false;
 			this.jump_counter = 0;
 		}
@@ -127,17 +127,17 @@ public class Mario extends Character{
 		}
 	}
 	
-	public Image pattern(){
-		String str;
+	public Image Die(){
+		String str = "";
 		ImageIcon ico;
 		Image img;
 		
-		str = "";
-		if(this.death_counter == 0){Audio.playSound(" ");}
-		if(this.death_counter == 100){Audio.playSound(" ");}
+		str = "/images/bang.png";
+		if(this.death_counter == 0){Audio.playSound("/audios/bang.wav");}
+		if(this.death_counter == 100){Audio.playSound("/audios/lost.wav");}
 		this.death_counter++;
 		if(this.death_counter > 100){
-			str = " ";
+			str = "/images/marioDie.png";
 			this.setY(this.getY() - 1);
 		}
 		ico = new ImageIcon(getClass().getResource(str));

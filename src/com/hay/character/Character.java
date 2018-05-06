@@ -46,7 +46,7 @@ public class Character {
 	
 	//**** FUNCTIONS ****//
 	public Image move(String name, int frequence) {
-		String str;
+		String str = "";
 		ImageIcon ico;
 		Image img;
 		
