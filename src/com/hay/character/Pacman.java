@@ -13,12 +13,12 @@ public class Pacman extends Character implements Runnable {
 
 	
 	public Pacman(int x,int y) {
-		super(x, y, 27, 30);
+		super(x, y, 75, 75);
 		super.setStarboard(true);
 		super.setMovement(true);
 		this.dxPacman=1;
 		
-		this.iconPacman=new ImageIcon(getClass().getResource("/images/pacman.png"));
+		this.iconPacman=new ImageIcon(getClass().getResource("/images/pacmanRight.png"));
 		this.imgPacman=this.iconPacman.getImage();
 		
 		Thread timePacman=new Thread(this);

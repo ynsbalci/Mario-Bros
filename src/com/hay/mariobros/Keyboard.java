@@ -12,24 +12,26 @@ public  class Keyboard implements KeyListener {
 		
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
 			
-			System.out.println("sag " + Main.scene.getxPos());
+			//System.out.println("sag " + Main.scene.getxPos());
 			
 			if (Main.scene.getxPos() == -1) {
 				Main.scene.setxPos(0);
 			}
-			//Main.mario.set;
+			Main.scene.mario.setMovement(true);
+			Main.scene.mario.setStarboard(true);
 			Main.scene.setDx(1);
 			
 			
 		}
 		else if(e.getKeyCode()==KeyEvent.VK_LEFT)
 		{
-			System.out.println("sol " + Main.scene.getxPos());
+			//System.out.println("sol " + Main.scene.getxPos());
 			
 			if (Main.scene.getxPos() == 4001) {
 				Main.scene.setxPos(4000);
 			}
-			//Main.mario.set;
+			Main.scene.mario.setMovement(true);
+			Main.scene.mario.setStarboard(false);
 			Main.scene.setDx(-1);
 		}
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {
@@ -41,7 +43,7 @@ public  class Keyboard implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		//elimizi tustan cektigimiz anda calisan olaydir
-		//Main.scene.mario.setMovement(false);
+		Main.scene.mario.setMovement(false);
 		Main.scene.setDx(0);	
 	}
 

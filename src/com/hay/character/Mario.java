@@ -32,32 +32,6 @@ public class Mario extends Character{
 	public void setJump(boolean jump) {this.jump = jump;}
 	
 	//**** METHODES ****//
-	@Override
-	public Image move(String name, int frequency){
-		String str = "";
-		ImageIcon ico;
-		Image img;
-		
-		if(this.isMovement() == false || Main.scene.getxPos() <= 0 ||
-		Main.scene.getxPos() > 4000){
-			if(this.isStarboard() == true){str = "/images/" + name + "Right.png";}
-			else{str = "/images/" + name + "";}
-		}else{
-			this.counter++;
-			if(this.counter / frequency == 0){
-				if(this.isStarboard() == true){str = "/images/" + name + "Right.png";}
-				else{str = "/images/" + name + "Left.png";}
-			}else{
-				if(this.isStarboard() == true){str = "/images/" + name + "MoveRight.png";}
-				else{str = "/images/" + name + "MoveLeft.png";}
-			}
-			if(this.counter == 2 * frequency) { this.counter = 0;}
-		}
-		ico = new ImageIcon(str);
-		img = ico.getImage();
-		return img;
-	}
-	
 	public Image jumping() {
 		
 		ImageIcon icon;
@@ -99,8 +73,8 @@ public class Mario extends Character{
 		if(super.downContact(object) == true && this.jump == true){
 			Main.scene.setySol(object.getY());
 		}else if(super.downContact(object) == false){
-			Main.scene.setySol(293);;
-			if(this.jump == false){this.setY(243);}
+			Main.scene.setySol(300);
+			if(this.jump == false){this.setY(350);}
 		}
 		if(super.upContact(object) == true){
 			Main.scene.setCeilingheater(object.getY() + object.getHeight());

@@ -17,7 +17,7 @@ public class Sonic extends Character implements Runnable{
 		super.setMovement(true);
 		this.dxSonic=1;
 		
-		this.iconSonic=new ImageIcon(getClass().getResource("/images/sonic.png"));
+		this.iconSonic=new ImageIcon(getClass().getResource("/images/sonicRight.png"));
 		this.imgSonic=this.iconSonic.getImage();
 		
 		Thread timesonic=new Thread(this);

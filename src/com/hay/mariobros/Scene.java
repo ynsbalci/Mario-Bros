@@ -109,12 +109,12 @@ public class Scene extends JPanel{
 		tubes = new ArrayList<Tube>();
 		
 		
-		for (int i = 0; i < rand.nextInt(10); i++) {
-			Pacman pacman = new Pacman(i * 50 + i, 0);
+		for (int i = 0; i < 5; i++) {
+			Pacman pacman = new Pacman(i * 600 + i, 350);
 			pacmans.add(pacman);
 		}
-		for (int i = 0; i < rand.nextInt(10); i++) {
-			Sonic sonic = new Sonic(i * 50 + i, 0);
+		for (int i = 0; i < 5; i++) {
+			Sonic sonic = new Sonic(i * 550 + i, 350);
 			sonics.add(sonic);
 		}
 		
@@ -131,17 +131,19 @@ public class Scene extends JPanel{
 			Coin coin = new Coin(i * 200 + i, 100);
 			coins.add(coin);//rand yapılcak y = 420 - 100
 		}
-		for (int i = 0; i < rand.nextInt(10); i++) {
-			Floor floor = new Floor(i * 200 + i, 450);
-			floors.add(floor);//rand yapılcak
-		}
+		
 		for (int i = 0; i < rand.nextInt(10); i++) {
 			Mountain mountain = new Mountain(i * 300 + i, 250);
 			mountains.add(mountain);//rand yapılcak
 		}
-		for (int i = 0; i < rand.nextInt(10); i++) {
-			Tube tube = new Tube(i * 75 + i, 300);
+		for (int i = 0; i < rand.nextInt(25); i++) {
+			Tube tube = new Tube(i * 500 + i, 300);
 			tubes.add(tube);//rand yapılcak y = 300 - 400
+		}
+		
+		for (int i = 0; i < 25; i++) {
+			Floor floor = new Floor(i * 200 + i, 450);
+			floors.add(floor);//rand yapılcak
 		}
 		
 		
@@ -324,7 +326,7 @@ public class Scene extends JPanel{
 		
 		//fixed
 		this.displacementBackground();
-		
+		//this.mario.displacement();
 		if (this.xPos >= 0 && this.xPos <= 4000) {
 			//charcaters
 			for (int i = 0; i < pacmans.size(); i++) {
@@ -388,6 +390,8 @@ public class Scene extends JPanel{
 		//mario
 		if (this.mario.isLife()) {
 			//
+			System.out.println("mario " + this.mario.getX() + " " + this.mario.getY());
+			
 			if (this.mario.isJump()) {
 				g2.drawImage(this.mario.jumping(), this.mario.getX(), this.mario.getY(), null);
 
@@ -417,7 +421,7 @@ public class Scene extends JPanel{
 			
 			if (this.sonics.get(i).isLife()) {
 
-				g2.drawImage(this.sonics.get(i).move("pacman", 25), this.sonics.get(i).getX(), this.sonics.get(i).getY(), null);
+				g2.drawImage(this.sonics.get(i).move("sonic", 25), this.sonics.get(i).getX(), this.sonics.get(i).getY(), null);
 
 			}
 			else {

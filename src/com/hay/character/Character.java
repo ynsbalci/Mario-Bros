@@ -106,6 +106,7 @@ public class Character {
 	}
 	
 	public boolean near(Object object){
+		
 		if((this.x > object.getX() - 10 && this.x < object.getX() + object.getWidth() + 10)
 		|| (this.x + this.width > object.getX() - 10 && this.x + this.width < object.getX() +object.getWidth() + 10)){return true;}
 		else {return false;}
