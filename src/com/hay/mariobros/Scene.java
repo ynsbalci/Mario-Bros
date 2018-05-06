@@ -94,7 +94,7 @@ public class Scene extends JPanel{
 		this.imgFinish = this.icoFinish.getImage();
 		
 		//Characters
-		mario = new Mario(370, 350);
+		mario = new Mario(370, 300);
 		rapunzel = new Rapunzel(0, 0);
 		
 		pacmans = new ArrayList<Pacman>();
@@ -110,30 +110,38 @@ public class Scene extends JPanel{
 		
 		
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			pacmans.add(new Pacman(i * 50 + i, 0));
+			Pacman pacman = new Pacman(i * 50 + i, 0);
+			pacmans.add(pacman);
 		}
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			sonics.add(new Sonic(i * 50 + i, 0));
+			Sonic sonic = new Sonic(i * 50 + i, 0);
+			sonics.add(sonic);
 		}
 		
 		//Objects
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			blocks.add(new Block(i * 50 + i, 0));//rand yapılcak
+			Block block = new Block(i * 50 + i, 0);
+			blocks.add(block);//rand yapılcak
 		}
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			clouds.add(new Cloud(i * 100 + i, 0));//rand yapılck y = 250 - 0
+			Cloud cloud = new Cloud(i * 100 + i, 0);
+			clouds.add(cloud);//rand yapılck y = 250 - 0
 		}
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			coins.add(new Coin(i * 200 + i, 100));//rand yapılcak y = 420 - 100
+			Coin coin = new Coin(i * 200 + i, 100);
+			coins.add(coin);//rand yapılcak y = 420 - 100
 		}
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			floors.add(new Floor(i * 200 + i, 450));//rand yapılcak
+			Floor floor = new Floor(i * 200 + i, 450);
+			floors.add(floor);//rand yapılcak
 		}
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			mountains.add(new Mountain(i * 300 + i, 250));//rand yapılcak
+			Mountain mountain = new Mountain(i * 300 + i, 250);
+			mountains.add(mountain);//rand yapılcak
 		}
 		for (int i = 0; i < rand.nextInt(10); i++) {
-			tubes.add(new Tube(i * 75 + i, 300));//rand yapılcak y = 300 - 400
+			Tube tube = new Tube(i * 75 + i, 300);
+			tubes.add(tube);//rand yapılcak y = 300 - 400
 		}
 		
 		
@@ -287,7 +295,7 @@ public class Scene extends JPanel{
 		for (int i = 0; i < coins.size(); i++) {
 			if (this.mario.near(this.coins.get(i))) {
 				if (this.mario.coinContact(this.coins.get(i))) {
-					Audio.playSound("/audio/coin.waw");
+					Audio.playSound("/audios/coin.waw");
 					this.coins.remove(i);
 					this.score.setNbreCoins(this.score.getNbreCoins() + 1);
 				}
@@ -307,7 +315,7 @@ public class Scene extends JPanel{
 		for (int i = 0; i < sonics.size(); i++) {
 			if (this.mario.near(this.sonics.get(i)) && this.sonics.get(i).isLife()) {
 				//
-				this.mario.contact(this.pacmans.get(i));
+				this.mario.contact(this.sonics.get(i));
 				if (!this.sonics.get(i).isLife()) {
 					Audio.playSound("/audios/crush.waw");
 				}
@@ -354,7 +362,7 @@ public class Scene extends JPanel{
 		g2.drawImage(this.imgStart,  10 - this.xPos, 0, null); 
 		
 		g2.drawImage(this.imgCastleFinish,  4475 - this.xPos, 50, null);
-		g2.drawImage(this.imgFinish,  750-this.xPos, 0, null); 
+		g2.drawImage(this.imgFinish,  750 - this.xPos, 0, null); 
 		
 		
 		for (int i = 0; i < blocks.size(); i++) {
@@ -399,7 +407,7 @@ public class Scene extends JPanel{
 
 			}
 			else {
-				//g2.drawImage(this.mario.Die(), this.mario.getX(), this.mario.getY(), null);
+				g2.drawImage(this.pacmans.get(i).Die(), this.pacmans.get(i).getX(), this.pacmans.get(i).getY(), null);
 			}
 		}
 		
@@ -412,7 +420,7 @@ public class Scene extends JPanel{
 
 			}
 			else {
-				//g2.drawImage(this.mario.die, this.mario.getX(), this.mario.getY(), null)
+				g2.drawImage(this.sonics.get(i).Die(), this.sonics.get(i).getX(), this.sonics.get(i).getY(), null);
 			}
 		}
 		

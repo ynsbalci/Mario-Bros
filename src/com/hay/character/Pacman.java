@@ -49,8 +49,6 @@ public class Pacman extends Character implements Runnable {
 	}
 	
 	
-	
-
 
 
 	@Override
