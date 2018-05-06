@@ -6,8 +6,8 @@ import com.hay.objects.Object;
 
 public class Sonic extends Character implements Runnable{
 	
-	private Image imgsonic;
-	private ImageIcon iconsonic;
+	private Image imgSonic;
+	private ImageIcon iconSonic;
 	private final int PAUSE=15;
 	private int dxsonic;
 	
@@ -17,8 +17,8 @@ public class Sonic extends Character implements Runnable{
 		super.setMovement(true);
 		this.dxsonic=1;
 		
-		this.iconsonic=new ImageIcon(getClass().getResource("/images/sonic.png"));
-		this.imgsonic=this.iconsonic.getImage();
+		this.iconSonic=new ImageIcon(getClass().getResource("/images/sonic.png"));
+		this.imgSonic=this.iconSonic.getImage();
 		
 		Thread timesonic=new Thread(this);
 		timesonic.start();
@@ -28,7 +28,7 @@ public class Sonic extends Character implements Runnable{
 	
 	//Getters
 	public Image getImgcoin() {
-		return imgsonic;
+		return imgSonic;
 	}
 
 	//Setters

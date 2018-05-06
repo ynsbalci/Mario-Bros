@@ -10,13 +10,21 @@ import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import com.hay.audio.Audio;
 import com.hay.character.Mario;
+import com.hay.character.Pacman;
+import com.hay.character.Rapunzel;
+import com.hay.character.Sonic;
 import com.hay.objects.Block;
 import com.hay.objects.Cloud;
 import com.hay.objects.Coin;
 import com.hay.objects.Floor;
 import com.hay.objects.Mountain;
 import com.hay.objects.Tube;
+import com.hay.panel.CountDown;
+import com.hay.panel.Score;
+
+import javafx.scene.text.Font;
 
 
 @SuppressWarnings("serial")
@@ -33,6 +41,8 @@ public class Scene extends JPanel{
 	private Image imgCastleFinish;
 	private ImageIcon icoFinish;
 	private Image imgFinish;
+	private ImageIcon icoFlag;
+	private Image imgFlag;
 	
 	private int xBackground;
 	private int dx;
@@ -41,21 +51,28 @@ public class Scene extends JPanel{
     private int ceilingheater=0;
     
     public Random rand =new Random();
-     int a = rand.nextInt(10);//0-10
+    int a = rand.nextInt(10);//0-10
     
     //Characters
 	public Mario mario;
+	public Rapunzel rapunzel;
+	private ArrayList<Pacman> pacmans;
+	private ArrayList<Sonic> sonics;
 	
-	//Objects
-	public Block[] blocks = new Block[rand.nextInt(25)];
-	public Cloud[] clouds = new Cloud[25];
-	public Coin[] coins = new Coin[rand.nextInt(25)];
-	public Floor[] floors = new Floor[25];
-	public Mountain[] mountains = new Mountain[rand.nextInt(25)];
-	public Tube[] tubes = new Tube[rand.nextInt(25)];
-
+	private ArrayList<Mountain> mountains;
+	private ArrayList<Cloud> clouds;
 	
-	private ArrayList<Object> objects;
+	private ArrayList<Block> blocks;
+	private ArrayList<Coin> coins;
+	private ArrayList<Floor> floors;
+	private ArrayList<Tube> tubes;
+	
+	//
+	private Score score;
+	private Font font;
+	private CountDown countDown;
+	
+	
 	
 	//**** CONSTRUCTOR ****//
 	public Scene(){
@@ -79,35 +96,56 @@ public class Scene extends JPanel{
 		
 		//Characters
 		mario = new Mario(370, 350);
+		rapunzel = new Rapunzel(0, 0);
+		
+		pacmans = new ArrayList<Pacman>();
+		sonics = new ArrayList<Sonic>();
+		
+		mountains = new ArrayList<Mountain>();
+		clouds = new ArrayList<Cloud>();
+		
+		blocks = new ArrayList<Block>();
+		coins = new ArrayList<Coin>();
+		floors = new ArrayList<Floor>();
+		tubes = new ArrayList<Tube>();
+		
+		
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			pacmans.add(new Pacman(i * 50 + i, 0));
+		}
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			sonics.add(new Sonic(i * 50 + i, 0));
+		}
 		
 		//Objects
-		for (int i = 0; i < blocks.length; i++) {
-			blocks[i] = new Block(i * 50 + i, 0);
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			blocks.add(new Block(i * 50 + i, 0));//rand yapılcak
 		}
-		for (int i = 0; i < clouds.length; i++) {
-			clouds[i] = new Cloud(i * 100 + i, 0);//rand yapılck y = 250 - 0
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			clouds.add(new Cloud(i * 100 + i, 0));//rand yapılck y = 250 - 0
 		}
-		for (int i = 0; i < coins.length; i++) {
-			coins[i] = new Coin(i * 200 + i, 100);//rand yapılcak y = 420 - 100
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			coins.add(new Coin(i * 200 + i, 100));//rand yapılcak y = 420 - 100
 		}
-		for (int i = 0; i < floors.length; i++) {
-			floors[i] = new Floor(i * 200 + i, 450);//rand yapılcak
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			floors.add(new Floor(i * 200 + i, 450));//rand yapılcak
 		}
-		for (int i = 0; i < mountains.length; i++) {
-			mountains[i] = new Mountain(i * 300 + i, 250);//rand yapılcak
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			mountains.add(new Mountain(i * 300 + i, 250));//rand yapılcak
 		}
-		for (int i = 0; i < tubes.length; i++) {
-			//
-			tubes[i] = new Tube(i * 75 + i, 300);//rand yapılcak y = 300 - 400
+		for (int i = 0; i < rand.nextInt(10); i++) {
+			tubes.add(new Tube(i * 75 + i, 300));//rand yapılcak y = 300 - 400
 		}
-		
-		objects = new ArrayList<Object>();
-		
 		
 		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
 		this.addKeyListener(new Keyboard());
+		
+		
+		score = new Score();
+		font = new Font("Arial", 18);
+		countDown = new CountDown();
 		
 		Thread timerScreen = new Thread(new Timer());
 		timerScreen.start();
@@ -136,20 +174,180 @@ public class Scene extends JPanel{
 		}
 		
 	}
+	
+	
+	private boolean isWin() {
+		if (this.countDown.getTimeCounter() > 0 && this.mario.isLife() && this.score.getNbreCoins() == 10 && this.xPos > 4000) {
+			/*if (this.ok) {
+				Audio.playSound("/audios/wim.waw");
+				this.ok = false;
+			}*/
+			return true;
+		}
+		else {return false;}
+	}
+	
+	private boolean isLost() {
+		if (!this.mario.isLife() || this.countDown.getTimeCounter() <= 0) {
+			return true;
+		}
+		else {return false;}
+	}
+	
+	public boolean isGameOver() {
+		if (this.isWin() || this.isLost()) {
+			return true;
+		}
+		else {return false;}
+	}
+	
+	
 	public void paintComponent(Graphics g) {
 		
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D)g;
 		
-		if (true) {
-			//this.mario.setMovement(false);
-			//this.dx=0;
-			//marionun herhangi bir engele çarptı mı diye bakıcaz
-			//eğer çarptı ise movemet false olcak
-			//dx i sıfırla
+		//objects
+		for (int i = 0; i < blocks.size(); i++) {
+			if (this.mario.near(this.blocks.get(i))) {
+				this.mario.contact(this.blocks.get(i));
+			}
+			for (int j = 0; j < pacmans.size(); j++) {
+				if (this.pacmans.get(j).near(this.blocks.get(i))) {
+					this.pacmans.get(j).contact(this.blocks.get(i));
+				}
+			}
+			for (int j = 0; j < sonics.size(); j++) {
+				if (this.sonics.get(j).near(this.blocks.get(i))) {
+					this.sonics.get(j).contact(this.blocks.get(i));
+				}
+			}
 		}
+		for (int i = 0; i < floors.size(); i++) {
+			if (this.mario.near(this.floors.get(i))) {
+				this.mario.contact(this.floors.get(i));
+			}
+			for (int j = 0; j < pacmans.size(); j++) {
+				if (this.pacmans.get(j).near(this.floors.get(i))) {
+					this.pacmans.get(j).contact(this.floors.get(i));
+				}
+			}
+			for (int j = 0; j < sonics.size(); j++) {
+				if (this.sonics.get(j).near(this.floors.get(i))) {
+					this.sonics.get(j).contact(this.floors.get(i));
+				}
+			}
+		}
+		for (int i = 0; i < tubes.size(); i++) {
+			if (this.mario.near(this.tubes.get(i))) {
+				this.mario.contact(this.tubes.get(i));
+			}
+			for (int j = 0; j < pacmans.size(); j++) {
+				if (this.pacmans.get(j).near(this.tubes.get(i))) {
+					this.pacmans.get(j).contact(this.tubes.get(i));
+				}
+			}
+			for (int j = 0; j < sonics.size(); j++) {
+				if (this.sonics.get(j).near(this.tubes.get(i))) {
+					this.sonics.get(j).contact(this.tubes.get(i));
+				}
+			}
+		}
+		
+		//
+		for (int i = 0; i < pacmans.size(); i++) {
+			for (int j = 0; j < pacmans.size(); j++) {
+				if (j != i) {
+					if (this.pacmans.get(j).near(this.pacmans.get(i))) {
+						this.pacmans.get(j).contact(this.pacmans.get(i));
+					}
+				}
+			}
+			for (int j = 0; j < sonics.size(); j++) {
+				if (this.sonics.get(j).near(this.pacmans.get(i))) {
+					this.sonics.get(j).contact(this.pacmans.get(i));
+				}
+			}
+		}
+		for (int i = 0; i < sonics.size(); i++) {
+			for (int j = 0; j < sonics.size(); j++) {
+				if (j != i) {
+					if (this.sonics.get(j).near(this.sonics.get(i))) {
+						this.sonics.get(j).contact(this.sonics.get(i));
+					}
+				}
+			}
+			for (int j = 0; j < pacmans.size(); j++) {
+				if (this.pacmans.get(j).near(this.sonics.get(i))) {
+					this.pacmans.get(j).contact(this.sonics.get(i));
+				}
+			}
+		}
+		
+		//coins
+		for (int i = 0; i < coins.size(); i++) {
+			if (this.mario.near(this.coins.get(i))) {
+				if (this.mario.coinContact(this.coins.get(i))) {
+					Audio.playSound("/audio/coin.waw");
+					this.coins.remove(i);
+					this.score.setNbreCoins(this.score.getNbreCoins() + 1);
+				}
+			}
+		}
+		
+		//mario vs enemys
+		for (int i = 0; i < pacmans.size(); i++) {
+			if (this.mario.near(this.pacmans.get(i)) && this.pacmans.get(i).isLife()) {
+				//
+				this.mario.contact(this.pacmans.get(i));
+				if (!this.pacmans.get(i).isLife()) {
+					Audio.playSound("");//yazılcak
+				}
+			}
+		}
+		for (int i = 0; i < sonics.size(); i++) {
+			if (this.mario.near(this.sonics.get(i)) && this.sonics.get(i).isLife()) {
+				//
+				this.mario.contact(this.pacmans.get(i));
+				if (!this.sonics.get(i).isLife()) {
+					Audio.playSound("");//yazılcak
+				}
+			}
+		}
+		
+		//fixed
 		this.displacementBackground();
 		
+		if (this.xPos >= 0 && this.xPos <= 4000) {
+			//charcaters
+			for (int i = 0; i < pacmans.size(); i++) {
+				this.pacmans.get(i).displacement();
+			}
+			for (int i = 0; i < sonics.size(); i++) {
+				this.sonics.get(i).displacement();
+			}
+			//objects
+			for (int i = 0; i < blocks.size(); i++) {
+				this.blocks.get(i).displacement();
+			}
+			for (int i = 0; i < clouds.size(); i++) {
+				this.clouds.get(i).displacement();
+			}
+			for (int i = 0; i < coins.size(); i++) {
+				this.coins.get(i).displacement();
+			}
+			for (int i = 0; i < floors.size(); i++) {
+				this.floors.get(i).displacement();
+			}
+			for (int i = 0; i < mountains.size(); i++) {
+				this.mountains.get(i).displacement();
+			}
+			for (int i = 0; i < tubes.size(); i++) {
+				this.tubes.get(i).displacement();
+			}
+		}
+		
+		//update
 		//background 
 		g2.drawImage(this.imgBackground, 0, 0, null); //arka plan sabit
 		g2.drawImage(this.imgCastleStart,  25 - this.xPos, 50, null); 
@@ -157,24 +355,27 @@ public class Scene extends JPanel{
 		g2.drawImage(this.imgCastleFinish,  4475 - this.xPos, 50, null);
 		g2.drawImage(this.imgFinish,  750-this.xPos, 0, null); 
 		
-		for (int i = 0; i < floors.length; i++) {
-			g2.drawImage(this.floors[i].getImgObject(), this.floors[i].getX() - this.xPos, this.floors[i].getY(), null);
+		
+		for (int i = 0; i < blocks.size(); i++) {
+			g2.drawImage(this.blocks.get(i).getImgObject(), this.blocks.get(i).getX() - this.xPos, this.blocks.get(i).getY(), null);
 		}
-		for (int i = 0; i < mountains.length; i++) {
-			g2.drawImage(this.mountains[i].getImgObject(), this.mountains[i].getX() - this.xPos, this.mountains[i].getY(), null);
+		for (int i = 0; i < clouds.size(); i++) {
+			g2.drawImage(this.clouds.get(i).getImgObject(), this.clouds.get(i).getX() - this.xPos, this.clouds.get(i).getY(), null);
 		}
-		for (int i = 0; i < clouds.length; i++) {
-			g2.drawImage(this.clouds[i].getImgObject(), this.clouds[i].getX() - this.xPos, this.clouds[i].getY(), null);
+		for (int i = 0; i < coins.size(); i++) {
+			g2.drawImage(this.coins.get(i).getImgObject(), this.coins.get(i).getX() - this.xPos, this.coins.get(i).getY(), null);
 		}
-		for (int i = 0; i < coins.length; i++) {
-			g2.drawImage(this.coins[i].getImgObject(), this.coins[i].getX() - this.xPos, this.coins[i].getY(), null);
+		for (int i = 0; i < floors.size(); i++) {
+			g2.drawImage(this.floors.get(i).getImgObject(), this.floors.get(i).getX() - this.xPos, this.floors.get(i).getY(), null);
 		}
-		for (int i = 0; i < blocks.length; i++) {
-			g2.drawImage(this.blocks[i].getImgObject(), this.blocks[i].getX() - this.xPos, this.blocks[i].getY(), null);
+		for (int i = 0; i < mountains.size(); i++) {
+			g2.drawImage(this.mountains.get(i).getImgObject(), this.mountains.get(i).getX() - this.xPos, this.mountains.get(i).getY(), null);
 		}
-		for (int i = 0; i < tubes.length; i++) {
-			g2.drawImage(this.tubes[i].getImgObject(), this.tubes[i].getX() - this.xPos, this.tubes[i].getY(), null);
+		for (int i = 0; i < tubes.size(); i++) {
+			g2.drawImage(this.tubes.get(i).getImgObject(), this.tubes.get(i).getX() - this.xPos, this.tubes.get(i).getY(), null);
 		}
+		
+		
 		
 		/*
 		
