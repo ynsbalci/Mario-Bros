@@ -18,7 +18,7 @@ public  class Keyboard implements KeyListener {
 				Main.scene.setxPos(0);
 			}
 			Main.scene.mario.setMovement(true);
-			Main.scene.mario.setStarboard(true);
+			Main.scene.mario.setRight(true);
 			Main.scene.setDx(1);
 			
 			
@@ -31,7 +31,7 @@ public  class Keyboard implements KeyListener {
 				Main.scene.setxPos(4000);
 			}
 			Main.scene.mario.setMovement(true);
-			Main.scene.mario.setStarboard(false);
+			Main.scene.mario.setRight(false);
 			Main.scene.setDx(-1);
 		}
 		if(e.getKeyCode()==KeyEvent.VK_SPACE) {

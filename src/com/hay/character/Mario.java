@@ -42,16 +42,16 @@ public class Mario extends Character{
 		if(this.jump_counter<=40) {
 			if(this.getY() > Main.scene.getCeilingheater()){this.setY(this.getY()-4);}
 			else {this.jump_counter = 41; }
-			if(this.isStarboard()==true) {str="/images/marioJumpRight.png";}
+			if(this.isRight()==true) {str="/images/marioJumpRight.png";}
 			else {str="/images/marioJumpLeft.png";}
 		
 		}else if(this.getY() + this.getHeight() < Main.scene.getySol()){
 				this.setY(this.getY() + 1);
-			if(this.isStarboard() == true){str = "/images/marioJumpRight.png";}
+			if(this.isRight() == true){str = "/images/marioJumpRight.png";}
 			else{str = "/images/marioJumpLeft.png";}
 			
 		}else{
-			if(this.isStarboard() == true){str = "/images/marioRight.png";}
+			if(this.isRight() == true){str = "/images/marioRight.png";}
 			else{str = "/images/marioLeft.png";}
 			this.jump = false;
 			this.jump_counter = 0;
@@ -64,8 +64,8 @@ public class Mario extends Character{
 	
 	public void contact(Object object){
 		
-		if((super.firstContact(object) == true && this.isStarboard() == true) ||
-		(super.backContact(object) == true && this.isStarboard() == false)){
+		if((super.firstContact(object) == true && this.isRight() == true) ||
+		(super.backContact(object) == true && this.isRight() == false)){
 			Main.scene.setDx(0);
 			this.setMovement(false);
 		}

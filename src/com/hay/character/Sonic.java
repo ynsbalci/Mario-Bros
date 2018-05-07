@@ -13,7 +13,7 @@ public class Sonic extends Character implements Runnable{
 	
 	public Sonic(int x, int y) {
 		super(x, y, 27, 30);//with hwight düznle
-		super.setStarboard(true);
+		super.setRight(true);
 		super.setMovement(true);
 		this.dxSonic=1;
 		
@@ -35,7 +35,7 @@ public class Sonic extends Character implements Runnable{
 	//Methods
 	
 	public void move() {
-		if(super.isStarboard()==true) {
+		if(super.isRight()==true) {
 			this.dxSonic=1;
 		}else {
 			this.dxSonic=-1;
@@ -63,21 +63,21 @@ public class Sonic extends Character implements Runnable{
 		
 	}
 	public void contact(Object object ) {
-		if(super.firstContact(object)==true && this.isStarboard()==true) {
-			super.setStarboard(false);
+		if(super.firstContact(object)==true && this.isRight()==true) {
+			super.setRight(false);
 			this.dxSonic=-1;
-		}else if(super.backContact(object)==true && this.isStarboard()==false) {
-			super.setStarboard(true);
+		}else if(super.backContact(object)==true && this.isRight()==false) {
+			super.setRight(true);
 			this.dxSonic=1;	
 		}
 		
 	}
 	public void contact(Character character ) {
-		if(super.firstContact(character)==true && this.isStarboard()==true) {
-			super.setStarboard(false);
+		if(super.firstContact(character)==true && this.isRight()==true) {
+			super.setRight(false);
 			this.dxSonic=-1;
-		}else if(super.backContact(character)==true && this.isStarboard()==false) {
-			super.setStarboard(true);
+		}else if(super.backContact(character)==true && this.isRight()==false) {
+			super.setRight(true);
 			this.dxSonic=1;	
 		}
 		
@@ -88,7 +88,7 @@ public class Sonic extends Character implements Runnable{
 		ImageIcon ico;
 		Image img;
 		
-		if(this.isStarboard() == true){str = "/images/sonicEscape.png";}
+		if(this.isRight() == true){str = "/images/sonicEscape.png";}
 		else{str = "/images/sonicDie.png";}
 		ico = new ImageIcon(getClass().getResource(str));
 		img = ico.getImage();

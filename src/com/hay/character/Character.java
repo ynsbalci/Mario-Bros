@@ -9,7 +9,7 @@ public class Character {
 	private int width,height;
 	private int x,y;
 	private boolean movement;
-	private boolean starboard;
+	private boolean right;
 	public int counter;
 	protected boolean life;
 	
@@ -20,7 +20,7 @@ public class Character {
 		this.height=height;
 		this.counter=0;
 		this.movement=false;
-		this.starboard=true;;
+		this.right=true;;
 		this.life = true;
 	}
 
@@ -30,7 +30,7 @@ public class Character {
 	public int getWidth() {return width;}
 	public int getHeight() {return height;}
 	public boolean isMovement() {return movement;}
-	public boolean isStarboard() {return starboard;}
+	public boolean isRight() {return right;}
 	public int getCounter() {return counter;}
 	public boolean isLife() {return life;}
 	
@@ -40,7 +40,7 @@ public class Character {
 	public void setWidth(int width) {this.width = width;}
 	public void setHeight(int height) {this.height = height;}
 	public void setMovement(boolean movement) {this.movement = movement;}
-	public void setStarboard(boolean starboard) {this.starboard = starboard;}
+	public void setRight(boolean right) {this.right = right;}
 	public void setCounter(int counter) {this.counter = counter;}
 	public void setLife(boolean life) {this.life = life;}
 	
@@ -51,17 +51,17 @@ public class Character {
 		Image img;
 		
 		if (this.movement == false || Main.scene.getxPos() <= 0) {
-			if(this.starboard == true) {str = "/images/" + name + "Right.png"; }
+			if(this.right == true) {str = "/images/" + name + "Right.png"; }
 			else {str = "/images/" + name + "Left.png"; }
 		}
 		else {
 			this.counter++;
 			if(this.counter / frequence == 0) {
-				if(this.starboard == true) {str = "/images/" + name + "Right.png"; }
+				if(this.right == true) {str = "/images/" + name + "Right.png"; }
 				else {str = "/images/" + name + "Left.png"; }
 			}
 			else {
-				if(this.starboard == true) {str = "/images/" + name + "MoveRight.png"; }
+				if(this.right == true) {str = "/images/" + name + "MoveRight.png"; }
 				else {str = "/images/" + name + "MoveLeft.png"; }
 			}
 			if(this.counter == 2 * frequence) {this.counter = 0;}
@@ -113,7 +113,7 @@ public class Character {
 	}
 	
 	protected boolean firstContact(Character character){
-		if(this.isStarboard() == true){
+		if(this.isRight() == true){
 			if(this.x + this.width < character.getX() ||
 			this.x + this.width > character.getX() + 5 ||
 			this.y + this.height <= character.getY() ||
