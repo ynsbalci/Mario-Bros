@@ -13,7 +13,11 @@ public class Pacman extends Character implements Runnable {
 
 	
 	public Pacman(int x,int y) {
+<<<<<<< HEAD
 		super(x, y, 75, 75);
+=======
+		super(x, y, 27, 30);
+>>>>>>> a12bec77c279406af31d8cc16dd250d06804df2c
 		super.setRight(true);
 		super.setMovement(true);
 		this.dxPacman=1;
@@ -43,7 +47,7 @@ public class Pacman extends Character implements Runnable {
 		}else {
 			this.dxPacman=-1;
 		}
-		super.setX(super.getX()+this.dxPacman);
+		super.setX(super.getX() + this.dxPacman);
 
 	}
 	

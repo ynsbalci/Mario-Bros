@@ -15,7 +15,7 @@ public class Mario extends Character{
 	private int death_counter;
 	
 	public Mario(int x,int y) { 
-		super(x, y, 60, 100);
+		super(x, y, 28, 50);
 		this.iconMario=new ImageIcon("/images/marioMoveRight.png");
 		this.imgMario=iconMario.getImage();
 		this.jump=false;
@@ -40,7 +40,7 @@ public class Mario extends Character{
 		
 		this.jump_counter++;
 		if(this.jump_counter<=40) {
-			if(this.getY() > Main.scene.getCeilingheater()){this.setY(this.getY()-4);}
+			if(this.getY() > Main.scene.getCeilingHeight()){this.setY(this.getY()-4);}
 			else {this.jump_counter = 41; }
 			if(this.isRight()==true) {str="/images/marioJumpRight.png";}
 			else {str="/images/marioJumpLeft.png";}
@@ -64,22 +64,28 @@ public class Mario extends Character{
 	
 	public void contact(Object object){
 		
+<<<<<<< HEAD
+=======
+		System.out.print("cont " + object);
+		
+>>>>>>> a12bec77c279406af31d8cc16dd250d06804df2c
 		if((super.firstContact(object) == true && this.isRight() == true) ||
 		(super.backContact(object) == true && this.isRight() == false)){
 			Main.scene.setDx(0);
 			this.setMovement(false);
 		}
-		
 		if(super.downContact(object) == true && this.jump == true){
 			Main.scene.setySol(object.getY());
-		}else if(super.downContact(object) == false){
-			Main.scene.setySol(300);
-			if(this.jump == false){this.setY(350);}
+		}
+		else if(super.downContact(object) == false){
+			Main.scene.setySol(293);
+			if(this.jump == false){this.setY(243);}
 		}
 		if(super.upContact(object) == true){
-			Main.scene.setCeilingheater(object.getY() + object.getHeight());
-		}else if(super.upContact(object) == false && this.jump == false){
-			Main.scene.setCeilingheater(0);
+			Main.scene.setCeilingHeight(object.getY() + object.getHeight());
+		}
+		else if(super.upContact(object) == false && this.jump == false){
+			Main.scene.setCeilingHeight(0);
 		}
 	}
 	
@@ -95,7 +101,8 @@ public class Mario extends Character{
 		(super.backContact(character) == true)){
 			this.setMovement(false);
 			this.setLife(false);
-		}else if(super.downContact(character) == true){
+		}
+		else if(super.downContact(character) == true){
 			character.setMovement(false);
 			character.setLife(false);
 		}
