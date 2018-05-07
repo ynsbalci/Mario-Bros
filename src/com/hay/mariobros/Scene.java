@@ -277,10 +277,10 @@ public class Scene extends JPanel{
 			
 			
 			for (int i = 0; i < allObjects.size(); i++) {
-				g2.drawImage(this.allObjects.get(i).getImgObject(), this.allObjects.get(i).getX() - this.xPos, this.allObjects.get(i).getY(), null);
+				g2.drawImage(this.allObjects.get(i).getImgObject(), this.allObjects.get(i).getX(), this.allObjects.get(i).getY(), null);
 			}
 			for (int i = 0; i < allCoins.size(); i++) {
-				g2.drawImage(this.allCoins.get(i).getImgObject(), this.allCoins.get(i).getX() - this.xPos, this.allCoins.get(i).getY(), null);
+				g2.drawImage(this.allCoins.get(i).getImgObject(), this.allCoins.get(i).getX(), this.allCoins.get(i).getY(), null);
 			}
 			
 			//mario

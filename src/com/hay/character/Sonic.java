@@ -12,11 +12,7 @@ public class Sonic extends Character implements Runnable{
 	private int dxSonic;
 	
 	public Sonic(int x, int y) {
-<<<<<<< HEAD
-		super(x, y, 27, 30);//with hwight düznle
-=======
 		super(x, y, 43, 50);//with hwight düznle
->>>>>>> a12bec77c279406af31d8cc16dd250d06804df2c
 		super.setRight(true);
 		super.setMovement(true);
 		this.dxSonic=1;

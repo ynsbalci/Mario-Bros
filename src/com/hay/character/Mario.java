@@ -64,11 +64,6 @@ public class Mario extends Character{
 	
 	public void contact(Object object){
 		
-<<<<<<< HEAD
-=======
-		System.out.print("cont " + object);
-		
->>>>>>> a12bec77c279406af31d8cc16dd250d06804df2c
 		if((super.firstContact(object) == true && this.isRight() == true) ||
 		(super.backContact(object) == true && this.isRight() == false)){
 			Main.scene.setDx(0);
