@@ -11,7 +11,7 @@ public class Main {
 		//
 		JFrame window = new JFrame("Mario Game");
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setSize(700, 400);
+		window.setSize(700, 500);
 		window.setLocationRelativeTo(null);
 		window.setResizable(false);
 		window.setAlwaysOnTop(true);

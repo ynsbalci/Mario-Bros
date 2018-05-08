@@ -64,7 +64,7 @@ public class Mario extends Character{
 	
 	public void contact(Object object){
 		
-		System.out.print("cont " + object);
+		System.out.println("cont " + object);
 		
 		if((super.firstContact(object) == true && this.isRight() == true) ||
 		(super.backContact(object) == true && this.isRight() == false)){

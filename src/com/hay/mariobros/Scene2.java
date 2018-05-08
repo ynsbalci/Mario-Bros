@@ -372,7 +372,7 @@ public class Scene2 extends JPanel{
 		}
 		for (int i = 0; i < tubes.size(); i++) {
 			g2.drawImage(this.tubes.get(i).getImgObject(), this.tubes.get(i).getX() - this.xPos, this.tubes.get(i).getY(), null);
-		}*/
+		}
 		
 		
 		//mario
@@ -392,7 +392,7 @@ public class Scene2 extends JPanel{
 		}
 		
 		//pacmans
-		/*for (int i = 0; i < pacmans.size(); i++) {
+		for (int i = 0; i < pacmans.size(); i++) {
 			
 			if (this.pacmans.get(i).isLife()) {
 
@@ -415,7 +415,7 @@ public class Scene2 extends JPanel{
 			else {
 				g2.drawImage(this.sonics.get(i).Die(), this.sonics.get(i).getX(), this.sonics.get(i).getY(), null);
 			}
-		}*/
+		}
 		
 		g2.setFont(font);
 		g2.drawString(this.score.getNbreCoins() + " / " + this.score.getNBRE_TOTAL_COINS(), 100, 100);
