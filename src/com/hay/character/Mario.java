@@ -16,6 +16,8 @@ public class Mario extends Character{
 	
 	public Mario(int x,int y) { 
 		super(x, y, 28, 50);
+		super.setRight(true);
+		super.setMovement(false);
 		this.iconMario=new ImageIcon("/images/marioMoveRight.png");
 		this.imgMario=iconMario.getImage();
 		this.jump=false;
@@ -64,8 +66,11 @@ public class Mario extends Character{
 	
 	public void contact(Object object){
 		
+<<<<<<< HEAD
 		System.out.println("cont " + object);
 		
+=======
+>>>>>>> 6f10bedfd229e1b8946a25f3662f49e4be3d76cb
 		if((super.firstContact(object) == true && this.isRight() == true) ||
 		(super.backContact(object) == true && this.isRight() == false)){
 			Main.scene.setDx(0);
